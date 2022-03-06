@@ -1,5 +1,40 @@
+from threading import Thread
+from gpiozero import LED
+from gpiozero import MotionSensor
+import RPi.GPIO as GPIO
 import time
 import rpi_i2c
+
+
+rPin = 26
+gPin = 19
+bPin = 13
+
+print("Introduce valorile pentru RGB")
+redValue = int(input("Red: ")) * 0.39215686
+greenValue = int(input("Green: ")) * 0.39215686
+blueValue = int(input("Blue: ")) * 0.39215686
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(rPin, GPIO.OUT)
+GPIO.setup(gPin, GPIO.OUT)
+GPIO.setup(bPin, GPIO.OUT)
+GPIO.output(rPin, GPIO.LOW)
+GPIO.output(gPin, GPIO.HIGH)
+GPIO.output(bPin, GPIO.HIGH)
+
+red = GPIO.PWM(rPin, 100)
+green = GPIO.PWM(gPin, 100)
+blue = GPIO.PWM(bPin, 100)
+
+red.start(0)
+blue.start(0)
+green.start(0)
+
+green_led = LED(17)
+pir=MotionSensor(4)
+green_led.off()
 
 class SHT21:
     i2c = rpi_i2c.I2C()     # I2C Wrapper Class
@@ -60,34 +95,52 @@ class SHT21:
         return True if (crc == data[length]) else False
 
 
-if __name__ == "__main__":
+# Threads
+
+# --------Read/Show Temperature and Humidity
+def readTempAndHumidity():
     sht21 = SHT21()
-    print("SHT21 Demo by www.emsystech.de")
     while True:
         try:
-            ############################################################################################################
-            # Example 1 Using the I2C Driver
-            ############################################################################################################
-
             (temperature, humidity) = sht21.measure(1)      # I2C-1 Port
             print("Temperature: %s °C  Humidity: %s %%" % (temperature, humidity))
-
-            ############################################################################################################
-            # Example 2 Using GPIOs on I2C Pins (without Driver), must be executed with sudo
-            ############################################################################################################
-
-            #(temperature, humidity) = sht21.measure(None)   # No I2C-Port/Driver --> GPIO2, GPIO3
-            #print("Temperature: %s °C  Humidity: %s %%" % (temperature, humidity))
-
-            ############################################################################################################
-            # Example 3 Using multiple Sensors (without Driver), must be executed with sudo, Pullups required
-            ############################################################################################################
-
-            #(t0, rh0) = sht21.measure(None,25,8)  # Use GPIOs SCL=3, SDA=2
-            #(t1, rh1) = sht21.measure(None,7,11)  # Use GPIOs SCL=3, SDA=2
-            #print("%s°C\t%s%%\t%s°C\t%s%%" % (t0,rh0,t1,rh1))
-
-            ############################################################################################################
         except:
             print("SHT21 I/O Error")
         time.sleep(2)
+
+# --------Motion sensor
+def motionDetect():
+    while True:
+        pir.wait_for_motion()
+        green_led.on()
+        print("Motion Detected")
+        pir.wait_for_no_motion()
+        green_led.off()
+        print("Motion Stopped")
+
+# --------Change RGB Color
+def changeRGBColor():      
+    while True:
+        changeColor(redValue, blueValue, greenValue)
+
+# Functions
+
+# --------changeRGBColor
+def changeColor(r_val, g_val, b_val):
+    red.ChangeDutyCycle(r_val)
+    green.ChangeDutyCycle(g_val)
+    blue.ChangeDutyCycle(b_val)
+
+if __name__ == "__main__":
+    showTemperatureAndHumidityThread = Thread(target = readTempAndHumidity)
+    motionDetectThread = Thread(target = motionDetect)
+    changeRGBColorThread = Thread(target = changeRGBColor)
+
+    changeRGBColorThread.start()
+    showTemperatureAndHumidityThread.start()
+    motionDetectThread.start()
+
+    changeRGBColorThread.join()
+    showTemperatureAndHumidityThread.join()
+    motionDetectThread.join()
+    print("thread finished..exiting")
