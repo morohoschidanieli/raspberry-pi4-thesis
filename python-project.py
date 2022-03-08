@@ -4,7 +4,8 @@ from gpiozero import MotionSensor
 import RPi.GPIO as GPIO
 import time
 import rpi_i2c
-
+from mq import *
+import sys, time
 
 rPin = 26
 gPin = 19
@@ -103,7 +104,7 @@ def readTempAndHumidity():
     while True:
         try:
             (temperature, humidity) = sht21.measure(1)      # I2C-1 Port
-            print("Temperature: %s °C  Humidity: %s %%" % (temperature, humidity))
+            print("\nTemperature: %s °C  Humidity: %s %%" % (temperature, humidity))
         except:
             print("SHT21 I/O Error")
         time.sleep(2)
@@ -113,10 +114,22 @@ def motionDetect():
     while True:
         pir.wait_for_motion()
         green_led.on()
-        print("Motion Detected")
+        print("\nMotion Detected")
         pir.wait_for_no_motion()
         green_led.off()
-        print("Motion Stopped")
+        print("\nMotion Stopped")
+
+# --------Gas Sensor
+def readGas():
+    mq = MQ()
+
+    while True:
+        perc = mq.MQPercentage()
+        sys.stdout.write("\r")
+        sys.stdout.write("\033[K")
+        sys.stdout.write("CO: %g ppm, Smoke: %g ppm" % (perc["CO"], perc["SMOKE"]))
+        sys.stdout.flush()
+        time.sleep(0.1)
 
 # --------Change RGB Color
 def changeRGBColor():      
@@ -135,12 +148,15 @@ if __name__ == "__main__":
     showTemperatureAndHumidityThread = Thread(target = readTempAndHumidity)
     motionDetectThread = Thread(target = motionDetect)
     changeRGBColorThread = Thread(target = changeRGBColor)
+    readGasThread = Thread(target = readGas)
 
+    readGasThread.start()
     changeRGBColorThread.start()
     showTemperatureAndHumidityThread.start()
     motionDetectThread.start()
-
+    
     changeRGBColorThread.join()
     showTemperatureAndHumidityThread.join()
     motionDetectThread.join()
+    readGasThread.join()
     print("thread finished..exiting")
