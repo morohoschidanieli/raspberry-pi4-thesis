@@ -1,6 +1,7 @@
 import time
 import rpi_i2c
-
+import requests
+url = 'http://localhost:9000/get-temperature-data'
 class SHT21:
     i2c = rpi_i2c.I2C()     # I2C Wrapper Class
 
@@ -62,14 +63,19 @@ class SHT21:
 
 if __name__ == "__main__":
     sht21 = SHT21()
-    print("SHT21 Demo by www.emsystech.de")
+    sht21Data = {'temperature' : '',
+                  'humidity' : ''}
+   
     while True:
-        try:
+    
             ############################################################################################################
             # Example 1 Using the I2C Driver
             ############################################################################################################
 
             (temperature, humidity) = sht21.measure(1)      # I2C-1 Port
+            sht21Data = {'temperature' : temperature, 'humidity' : humidity}
+            requests.post(url, sht21Data)
+            #print(response)a
             print("Temperature: %s °C  Humidity: %s %%" % (temperature, humidity))
 
             ############################################################################################################
@@ -88,6 +94,4 @@ if __name__ == "__main__":
             #print("%s°C\t%s%%\t%s°C\t%s%%" % (t0,rh0,t1,rh1))
 
             ############################################################################################################
-        except:
-            print("SHT21 I/O Error")
-        time.sleep(2)
+            time.sleep(2)
