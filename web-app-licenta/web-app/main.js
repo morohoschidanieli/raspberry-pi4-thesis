@@ -24,7 +24,21 @@ connection.on( 'disconnect', () => {
 } );
 
 connection.on( 'motionSensorEvent', (data) => {
-  document.getElementById('motionData').innerHTML="Detect obejct: " + data.isActivated;
+  document.getElementById('motionData').innerHTML="Detectie senzor PIR: " + data.isActivated;
+  console.log(data);
+} );
+
+
+connection.on( 'sht21Event', (data) => {
+  document.getElementById('temperatureData').innerHTML="Temperatura: " + data.temperature + ' gradC';
+  document.getElementById('humidityData').innerHTML="Umiditate: " + data.humidity + ' %';
+  console.log(data);
+} );
+
+connection.on( 'mq135Event', (data) => {
+  document.getElementById('COData').innerHTML="CO: " + data.C0 + ' ppm';
+  document.getElementById('CO2Data').innerHTML="CO2: " + data.Smoke + ' ppm';
+  document.getElementById('alarmData').innerHTML="CO2: " + data.isAlarmOn;
   console.log(data);
 } );
 

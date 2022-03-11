@@ -6,6 +6,7 @@ import time
 import rpi_i2c
 from mq import *
 import sys, time
+import requests
 
 rPin = 26
 gPin = 19
@@ -101,35 +102,71 @@ class SHT21:
 # --------Read/Show Temperature and Humidity
 def readTempAndHumidity():
     sht21 = SHT21()
+
+    url = 'http://localhost:9000/get-temperature-data'
+    ht21Data = {'temperature' : '',
+                  'humidity' : ''}
     while True:
         try:
             (temperature, humidity) = sht21.measure(1)      # I2C-1 Port
-            print("\nTemperature: %s °C  Humidity: %s %%" % (temperature, humidity))
+            sht21Data = {'temperature' : temperature, 'humidity' : humidity}
+            requests.post(url, sht21Data)
+            #print(response)a
+            print("Temperature: %s °C  Humidity: %s %%" % (temperature, humidity))
         except:
             print("SHT21 I/O Error")
         time.sleep(2)
 
 # --------Motion sensor
 def motionDetect():
+    data = {"isActivated" : ''}
+    url = "http://localhost:9000/motion-sensor-data"
     while True:
         pir.wait_for_motion()
         green_led.on()
-        print("\nMotion Detected")
+        data = {"isActivated" : 'true'}
+        response = requests.post(url, data)
         pir.wait_for_no_motion()
         green_led.off()
-        print("\nMotion Stopped")
+        data = {"isActivated" : 'false'}
+        response = requests.post(url, data)
 
 # --------Gas Sensor
 def readGas():
-    mq = MQ()
+    buzzerPin = 6
 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(buzzerPin, GPIO.OUT)
+    GPIO.output(buzzerPin, GPIO.LOW)
+
+    mq = MQ()
+    mq135Data = {"C0" : "0",
+             "Smoke" : "0",
+             "isAlarmOn" : 'false'}
+    url = "http://localhost:9000/get-smoke-data"
     while True:
         perc = mq.MQPercentage()
         sys.stdout.write("\r")
         sys.stdout.write("\033[K")
         sys.stdout.write("CO: %g ppm, Smoke: %g ppm" % (perc["CO"], perc["SMOKE"]))
+        mq135Data = {"C0" : perc["CO"],
+                 "Smoke" : perc["SMOKE"],
+                 "isAlarmOn" : 'false'}
+        response = requests.post(url, mq135Data)
+        if perc["SMOKE"] > 1.2:
+            mq135Data = {"C0" : perc["CO"],
+                 "Smoke" : perc["SMOKE"],
+                 "isAlarmOn" : 'true'}
+        response = requests.post(url, mq135Data)
+        GPIO.output(buzzerPin, GPIO.HIGH)
+        time.sleep(2)
+        GPIO.output(buzzerPin, GPIO.LOW)
+        mq135Data = {"C0" : perc["CO"],
+                 "Smoke" : perc["SMOKE"],
+                 "isAlarmOn" : 'false'}
+        response = requests.post(url, mq135Data)
         sys.stdout.flush()
-        time.sleep(0.1)
+        time.sleep(2)
 
 # --------Change RGB Color
 def changeRGBColor():      

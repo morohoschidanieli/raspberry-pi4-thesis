@@ -33,7 +33,7 @@ const io = socket(server);
 //---------GET MOTION SENSOR DATA--------
 app.post('/motion-sensor-data', (req, res) => {
   let motionSensorData = req.body;
-  console.log(motionSensorData.isActivated);
+  console.log(motionSensorData);
   io.emit('motionSensorEvent',{"isActivated":motionSensorData.isActivated});
   res.send("Data received");
 });
