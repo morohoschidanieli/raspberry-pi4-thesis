@@ -2,6 +2,8 @@ const path = require( 'path' );
 const express = require( 'express' );
 const socket = require( 'socket.io' );
 
+const { moistureDatabase, smokeDatabase, temperatureAndHumidityDatabase } = require( './firebase/admin' );
+
 // import LED control API
 const { toggle } = require( './led-api' );
 
@@ -41,6 +43,8 @@ app.post('/motion-sensor-data', (req, res) => {
 //---------GET MOTION SENSOR DATA--------
 app.post('/get-temperature-data', (req, res) => {
   let sht21Data = req.body;
+  let currentTime = require('./methods/getTime');
+  console.log(currentTime);
   console.log(sht21Data);
   io.emit('sht21Event',sht21Data);
   res.send("Data received");
