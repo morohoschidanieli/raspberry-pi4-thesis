@@ -13,6 +13,7 @@ gPin = 19
 bPin = 13
 
 print("Introduce valorile pentru RGB")
+
 redValue = int(input("Red: ")) * 0.39215686
 greenValue = int(input("Green: ")) * 0.39215686
 blueValue = int(input("Blue: ")) * 0.39215686
@@ -170,8 +171,13 @@ def readGas():
 
 # --------Change RGB Color
 def changeRGBColor():      
-    while True:
-        changeColor(redValue, blueValue, greenValue)
+    url = "http://localhost:9000/rgb-data"
+
+    changeColor(redValue, blueValue, greenValue)
+    rgbData = {"red" : int(redValue/0.39215686),
+            "green" : int(greenValue/0.39215686),
+            "blue" : int(blueValue/0.39215686)}
+    response = requests.post(url, rgbData)
 
 # Functions
 

@@ -40,6 +40,20 @@ app.post('/motion-sensor-data', (req, res) => {
   res.send("Data received");
 });
 
+//---------GET RGB DATA--------
+app.post('/rgb-data', (req, res) => {
+  let rgbData = req.body;
+  const previousData = pathDatabase.child(`sensors/rgb-data/`);
+  previousData.set({
+    red: rgbData.red,
+    green : rgbData.green,
+    blue :  rgbData.blue
+  })
+  console.log(rgbData);
+  //io.emit('motionSensorEvent',{"isActivated":motionSensorData.isActivated});
+  res.send("Data received");
+});
+
 //---------GET MOTION SENSOR DATA--------
 app.post('/get-temperature-data', (req, res) => {
   let sht21Data = req.body;
