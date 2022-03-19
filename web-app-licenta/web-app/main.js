@@ -12,7 +12,7 @@ var button_blue_state = false;
 var isConnectionActive = false;
 
 // connect to the Web Socket server
-var connection = io( 'localhost:9000' );
+var connection = io( '192.168.0.122:9000' );
 
 // when connection is established 
 connection.on( 'connect', () => {

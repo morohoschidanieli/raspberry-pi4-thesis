@@ -24,19 +24,19 @@ while True:
     mq135Data = {"C0" : perc["CO"],
                  "Smoke" : perc["SMOKE"],
                  "isAlarmOn" : 'false'}
-    response = requests.post(url, mq135Data)
+  #  response = requests.post(url, mq135Data)
     if perc["SMOKE"] > 1.2:
         mq135Data = {"C0" : perc["CO"],
                  "Smoke" : perc["SMOKE"],
                  "isAlarmOn" : 'true'}
-        response = requests.post(url, mq135Data)
+        #response = requests.post(url, mq135Data)
         GPIO.output(buzzerPin, GPIO.HIGH)
         time.sleep(2)
         GPIO.output(buzzerPin, GPIO.LOW)
     mq135Data = {"C0" : perc["CO"],
                  "Smoke" : perc["SMOKE"],
                  "isAlarmOn" : 'false'}
-    response = requests.post(url, mq135Data)
+    # response = requests.post(url, mq135Data)
     sys.stdout.flush()
     time.sleep(2)
 

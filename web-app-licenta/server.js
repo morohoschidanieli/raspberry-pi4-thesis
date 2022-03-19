@@ -1,6 +1,9 @@
 const path = require( 'path' );
 const express = require( 'express' );
 const socket = require( 'socket.io' );
+// const videoStream = require( 'raspberrypi-node-camera-web-streamer' );
+const fs = require('fs')
+
 
 const { pathDatabase, moistureDatabase, smokeDatabase, temperatureAndHumidityDatabase } = require( './firebase/admin' );
 
@@ -9,6 +12,18 @@ const { toggle } = require( './led-api' );
 
 // create an express app
 const app = express();
+
+
+// start capture
+const videoStream = require('./videoStream');
+videoStream.acceptConnections(app, {
+        width: 1280,
+        height: 720,
+        fps: 16,
+        encoding: 'JPEG',
+        quality: 7 // lower is faster, less quality
+    }, 
+    '/stream.mjpg', true);
 
 // send asset files
 app.use( '/assets/', express.static( path.resolve( __dirname, 'web-app' ) ) );
