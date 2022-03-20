@@ -4,7 +4,7 @@
     <title>LED IoT Example</title>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="/assets/style.css"/>
+    <link rel="stylesheet" href="/assets/css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -15,15 +15,58 @@
     <p id="CO2Data">ert</p>
     <p id="alarmData">ert</p>
     <p class="title">RGB LED IoT Appliation</p>
-    <div class="buttons-container">
+    <!-- <div class="buttons-container">
       <div class="buttons-container__button buttons-container__button--red" id="button-red">Red</div>
       <div class="buttons-container__button buttons-container__button--green" id="button-green">Green</div>
       <div class="buttons-container__button buttons-container__button--blue" id="button-blue">Blue</div>
-    </div>
+    </div> -->
     <img src="stream.mjpg" style="position: fixed; top: 434px; left: 0px; right: 0px; height: 300px; width: 300px; object-fit: contain;">
+
+    <form method="post" action="/rgb-data" class="rgb-container">
+      <label for="red">RED: </label>
+      <input id="red" name="red" />
+      <br>
+      <br>
+      <br>
+      <label for="green">GREEN: </label>
+      <input id="green" name="green"/>
+      <br>
+      <br>
+      <br>
+      <label for="blue">BLUE: </label>
+      <input id="blue" name="blue"/>
+    <br>
+    <br>
+    <br>
+      <button type="submit" id="change-rgb">Change RGB</button>
+      </form>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="left">Left</button>
+    <button id="up">Up</button>
+    <button id="down">Down</button>
+    <button id="right">Right</button>
 
     <!-- scripts -->
     <script src="/assets/socket.io.js"></script>
-    <script src="/assets/main.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>

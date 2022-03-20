@@ -52,8 +52,8 @@ let videoStream = {
         
                     isReady = false;
         
-                    if(isVerbose)
-                        console.log('Writing frame: '+frameData.length);
+                    // if(isVerbose)
+                    //     console.log('Writing frame: '+frameData.length);
 
                     lastFrameObj.lastFrame = frameData;
 

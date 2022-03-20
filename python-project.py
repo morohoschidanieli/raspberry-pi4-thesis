@@ -1,3 +1,4 @@
+from socket import socket
 from threading import Thread
 from gpiozero import LED
 from gpiozero import MotionSensor
@@ -7,6 +8,28 @@ import rpi_i2c
 from mq import *
 import sys, time
 import requests
+import pyrebase
+
+firebaseConfig = {
+    'apiKey': "AIzaSyD3qooGTPdXGN6NBDSpNZteiwGOpgkJZzY",
+    'authDomain': "licenta-3e164.firebaseapp.com",
+    'databaseURL': "https://licenta-3e164-default-rtdb.firebaseio.com",
+    'projectId': "licenta-3e164",
+    'storageBucket': "licenta-3e164.appspot.com",
+    'messagingSenderId': "987851035034",
+    'appId': "1:987851035034:web:825ea9c221d2d8933c2a23",
+    'measurementId': "G-9SKBFKBX69"
+}
+
+firebase=pyrebase.initialize_app(firebaseConfig)
+db = firebase.database()
+
+rgbData = db.child('sensors/rgb-data').get()
+
+redValue = int(rgbData.val()['red']) * 0.39215686
+greenValue = int(rgbData.val()['green']) * 0.39215686
+blueValue = int(rgbData.val()['blue']) * 0.39215686
+print(int(rgbData.val()['red']))
 
 rPin = 26
 gPin = 19
@@ -14,9 +37,9 @@ bPin = 13
 
 print("Introduce valorile pentru RGB")
 
-redValue = int(input("Red: ")) * 0.39215686
-greenValue = int(input("Green: ")) * 0.39215686
-blueValue = int(input("Blue: ")) * 0.39215686
+# redValue = int(input("Red: ")) * 0.39215686
+# greenValue = int(input("Green: ")) * 0.39215686
+# blueValue = int(input("Blue: ")) * 0.39215686
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -172,12 +195,21 @@ def readGas():
 # --------Change RGB Color
 def changeRGBColor():      
     url = "http://localhost:9000/rgb-data"
-
-    changeColor(redValue, blueValue, greenValue)
-    rgbData = {"red" : int(redValue/0.39215686),
-            "green" : int(greenValue/0.39215686),
-            "blue" : int(blueValue/0.39215686)}
-    response = requests.post(url, rgbData)
+    getUrl = "https://licenta-3e164-default-rtdb.firebaseio.com/sensors/rgb-data"
+    getData = ""
+    # changeColor(redValue, blueValue, greenValue)
+    # rgbData = {"red" : int(redValue/0.39215686),
+    #         "green" : int(greenValue/0.39215686),
+    #         "blue" : int(blueValue/0.39215686)}
+    # response = requests.post(url, rgbData)
+    while True:
+        rgbData = db.child('sensors/rgb-data').get()
+        redValue = int(rgbData.val()['red']) * 0.39215686
+        greenValue = int(rgbData.val()['green']) * 0.39215686
+        blueValue = int(rgbData.val()['blue']) * 0.39215686
+        changeColor(redValue, blueValue, greenValue)
+        print(redValue)
+        time.sleep(2)
 
 # Functions
 
