@@ -71,36 +71,36 @@ io.on( 'connection', ( client ) => {
 
   client.on( 'moveServoLeft', ( data ) => {
     console.log( 'Received move left event.' );
-    horizontaInitialValue += 0.01;
+    horizontaInitialValue += 0.001;
     if(horizontaInitialValue <=0.27){
-      horizontaInitialValue += 0.01;
+      horizontaInitialValue += 0.001;
     piblaster.setPwm(21, horizontaInitialValue);
     }
   } );
 
   client.on( 'moveServoRight', ( data ) => {
     console.log( 'Received move right event.' );
-    horizontaInitialValue -= 0.01;
+    horizontaInitialValue -= 0.001;
     if(horizontaInitialValue >= 0.029){
-      horizontaInitialValue -= 0.01;
+      horizontaInitialValue -= 0.001;
     piblaster.setPwm(21, horizontaInitialValue);
     }
   } );
 
   client.on( 'moveServoUp', ( data ) => {
     console.log( 'Received move up event.' );
-    verticalInitialValue -= 0.01;
+    verticalInitialValue -= 0.001;
     if(verticalInitialValue > 0.029){
-      verticalInitialValue -= 0.01;
+      verticalInitialValue -= 0.001;
     piblaster.setPwm(20, verticalInitialValue);
     }
   } );
 
   client.on( 'moveServoDown', ( data ) => {
     console.log( 'Received move down event.' );
-    verticalInitialValue += 0.01;
+    verticalInitialValue += 0.001;
     if(verticalInitialValue < 0.28){
-      verticalInitialValue += 0.01;
+      verticalInitialValue += 0.001;
     piblaster.setPwm(20, verticalInitialValue);
     }
   } );

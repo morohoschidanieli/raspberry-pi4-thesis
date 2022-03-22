@@ -43,7 +43,7 @@ connection.on( 'sht21Event', (data) => {
 connection.on( 'mq135Event', (data) => {
   document.getElementById('COData').innerHTML="CO: " + data.C0 + ' ppm';
   document.getElementById('CO2Data').innerHTML="CO2: " + data.Smoke + ' ppm';
-  document.getElementById('alarmData').innerHTML="CO2: " + data.isAlarmOn;
+  document.getElementById('alarmData').innerHTML="Alarm: " + data.isAlarmOn;
   console.log(data);
 } );
 
@@ -89,7 +89,7 @@ var emitDownEvent = function( event ) {
 };
 
 
-addRgbButton.addEventListener( 'click' , emitEvent);
+
 leftButton.addEventListener( 'click' , emitLeftEvent);
 rightButton.addEventListener( 'click' , emitRightEvent);
 upButton.addEventListener( 'click' , emitUpEvent);
