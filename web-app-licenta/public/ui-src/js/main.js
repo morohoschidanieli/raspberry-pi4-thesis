@@ -16,6 +16,7 @@ var button_blue_state = false;
 // check for active connection
 var isConnectionActive = false;
 
+
 // connect to the Web Socket server
 var connection = io( '192.168.0.122:9000' );
 

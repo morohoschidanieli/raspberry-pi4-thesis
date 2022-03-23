@@ -8,21 +8,22 @@
   },
   "keywords": [],
   "author": "",
+  "raspberrypi-node-camera-web-streamer": "^1.1.2",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",
+    "bootstrap": "^5.1.3",
     "express": "^4.17.3",
     "firebase": "^9.6.7",
     "firebase-admin": "^10.0.2",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "node-sass": "^6.0.1",
     "onoff": "^6.0.3",
-    "raspberrypi-node-camera-web-streamer": "^1.1.2",
     "readline": "^1.3.0",
     "sass": "^1.49.9",
     "socket.io": "^4.4.1",
-    "socket.io-client": "^4.4.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "node-sass": "^6.0.1"
+    "socket.io-client": "^4.4.1"
   },
   "devDependencies": {
     "grunt": "^1.4.1",
