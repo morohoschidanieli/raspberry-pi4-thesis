@@ -1,0 +1,26 @@
+.navbar{
+  &__logo{
+    height:46px;
+  }
+}
+
+.nav-link{
+  color: $navbar-item-color !important;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-item{
+  color: $navbar-item-color !important;
+  cursor: pointer;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+
+  &:hover{
+    color: $navbar-item-color-hover !important;
+
+    & .nav-link{
+      color: $navbar-item-color-hover !important;
+    }
+  }
+
+}

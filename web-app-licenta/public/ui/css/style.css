@@ -1,10 +1,32 @@
-.da {
-  color: black; }
-
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 body {
   background-color: #2D384F !important; }
 
-.page-container {
+.homepage {
   background-color: #2D384F; }
+
+.navbar__logo {
+  height: 46px; }
+
+.nav-link {
+  color: #8a92a1 !important;
+  font-weight: bold;
+  font-size: 16px; }
+
+.nav-item {
+  color: #8a92a1 !important;
+  cursor: pointer;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out; }
+  .nav-item:hover {
+    color: white !important; }
+    .nav-item:hover .nav-link {
+      color: white !important; }
+
+.navbar {
+  background-color: #2D384F !important; }
+
+body {
+  font-family: 'Archivo Black', sans-serif !important; }
 
 /*# sourceMappingURL=style.css.map */
