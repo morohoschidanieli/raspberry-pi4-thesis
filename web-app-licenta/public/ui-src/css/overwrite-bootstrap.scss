@@ -1,3 +1,7 @@
 .navbar{
   background-color: $application-background-color !important;
 }
+
+.active{
+  color: $navbar-active-item-color !important;
+}

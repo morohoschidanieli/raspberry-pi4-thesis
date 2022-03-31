@@ -1,62 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LED IoT Example</title>
+<head>
+  <title>LED IoT Example</title>
 
-    <!-- Link to custom style -->
-    <link rel="stylesheet" href="/assets/ui/css/style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet">
+  <!-- Link to custom style -->
+  <link rel="stylesheet" href="/assets/ui/css/style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet">
 
-    <!-- Link to boostrap style -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Link to boostrap style -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Link to boostrap javascript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Link to boostrap javascript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- Link to socket.io -->
-    <script src="/assets/socket.io.js"></script>
+  <!-- Link to socket.io -->
+  <script src="/assets/socket.io.js"></script>
 
-<!--    Font awesome link-->
-    <script src="https://kit.fontawesome.com/abcc6b2fc6.js" crossorigin="anonymous"></script>
+  <!--    Font awesome link-->
+  <script src="https://kit.fontawesome.com/abcc6b2fc6.js" crossorigin="anonymous"></script>
 
-  </head>
-  <body>
-  <div class="container-xxl p-0 homepage">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="/">
-        <img class="navbar__logo" src="/assets/img/logo.svg" alt="logo">
-      </a>
+</head>
+<body>
+<div class="container-xxl p-0 homepage">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img class="navbar__logo" src="/assets/img/logo.svg" alt="logo">
+    </a>
 
-      <div class="collapse navbar-collapse flex-row-reverse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item d-flex flex-row align-items-center px-3">
-            <i class="fas fa-home"></i>
-            <a class="nav-link" href="#">Overview</a>
-          </li>
-          <li class="nav-item d-flex flex-row align-items-center px-3">
-            <i class="fas fa-chart-bar"></i>
-            <a class="nav-link" href="#">Analytics</a>
-          </li>
-          <li class="nav-item d-flex flex-row align-items-center px-3">
-            <i class="fas fa-image"></i>
-            <a class="nav-link" href="#">Gallery</a>
-          </li>
-          <li class="nav-item d-flex flex-row align-items-center px-2">
-            <i class="fas fa-cog"></i>
-          </li>
-          <li class="nav-item d-flex flex-row align-items-center px-2">
-            <i class="fas fa-bell"></i>
-          </li>
-        </ul>
+    <div class="collapse navbar-collapse flex-row-reverse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item d-flex flex-row align-items-center px-3 active">
+          <i class="fas fa-home"></i>
+          <a class="nav-link active" href="/overview">Overview</a>
+        </li>
+        <li class="nav-item d-flex flex-row align-items-center px-3">
+          <i class="fas fa-chart-bar"></i>
+          <a class="nav-link" href="#">Analytics</a>
+        </li>
+        <li class="nav-item d-flex flex-row align-items-center px-3">
+          <i class="fas fa-image"></i>
+          <a class="nav-link" href="#">Gallery</a>
+        </li>
+        <li class="nav-item d-flex flex-row align-items-center px-2">
+          <i class="fas fa-cog"></i>
+        </li>
+        <li class="nav-item d-flex flex-row align-items-center px-2">
+          <i class="fas fa-bell"></i>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="overview__container">
+    <h2 class="overview__title py-4">Overview</h2>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-8 p-3 overview__camera-stream__container position-relative">
+        <div class="d-flex justify-content-between align-items-center">
+          <p class="overview__camera-stream__title">Camera</p>
+          <div class="overview__buttons">
+            <i id="toggle-recording-action" class="fas fa-video px-2"></i>
+            <i id="toggle-capture-action" class="fas fa-camera px-2"></i>
+          </div>
+        </div>
+        <div class="position-relative">
+          <img class="overview__camera-stream" src="stream.mjpg" onerror="this.onerror=null;this.src='/assets/img/video-stream/no-video-stream.png';" alt="camera-stream">
+          <div class="overview__camera-stream__start-recording js-recording-text hidden"><img style="height: 20px" class="mx-2" src="/assets/img/icons/rec-button.png" />Recording</div>
+        </div>
       </div>
-    </nav>
+      <div class="col-12 col-sm-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="row px-3 h-50">
+          sdf
+        </div>
+        <div class="row px-3 h-50">
 
-    <button type="button" class="btn btn-primary">Primary</button>
+          sdf
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <p id="motionData">ert</p>
     <p id="temperatureData">ert</p>
     <p id="humidityData">ert</p>
@@ -69,7 +100,7 @@
       <div class="buttons-container__button buttons-container__button--green" id="button-green">Green</div>
       <div class="buttons-container__button buttons-container__button--blue" id="button-blue">Blue</div>
     </div> -->
-    <img src="stream.mjpg" style="position: fixed; top: 434px; left: 0px; right: 0px; height: 300px; width: 300px; object-fit: contain; transform: rotate(180deg);">
+    <!--    <img src="stream.mjpg" style="position: fixed; top: 434px; left: 0px; right: 0px; height: 300px; width: 300px; object-fit: contain; transform: rotate(180deg);">-->
 
     <form method="post" action="/rgb-data">
       <label for="favcolor">Select color</label>
@@ -135,9 +166,9 @@
   <button id="up">Up</button>
   <button id="down">Down</button>
   <button id="right">Right</button>
-  </div>
+</div>
 
 <!-- Link to custom javascript -->
 <script src="/assets/ui/js/main.js"></script>
-  </body>
+</body>
 </html>

@@ -1,11 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
-body {
-  background-color: #2D384F !important; }
+.hidden {
+  display: none !important; }
 
 .homepage {
   background-color: #2D384F; }
 
+.overview__title {
+  color: white; }
+.overview__buttons {
+  cursor: pointer;
+  color: #8a92a1 !important; }
+.overview__camera-stream {
+  width: 100%;
+  object-fit: cover; }
+  .overview__camera-stream__title {
+    color: #8a92a1 !important; }
+  .overview__camera-stream__container {
+    background-color: #2f3b52;
+    padding: 20px;
+    width: 100%;
+    max-height: 490px;
+    object-fit: contain; }
+  .overview__camera-stream__start-recording {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 10px;
+    right: 20px;
+    padding: 5px 10px;
+    background: linear-gradient(90deg, rgba(69, 69, 69, 0.4066001401) 100%, rgba(119, 119, 119, 0.3197654062) 100%);
+    border-radius: 6px;
+    animation: blinker 1.5s linear infinite; }
+
+@keyframes blinker {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  70% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 .navbar__logo {
   height: 46px; }
 
@@ -26,7 +62,11 @@ body {
 .navbar {
   background-color: #2D384F !important; }
 
+.active {
+  color: white !important; }
+
 body {
-  font-family: 'Archivo Black', sans-serif !important; }
+  font-family: 'Archivo Black', sans-serif !important;
+  background-color: #2D384F !important; }
 
 /*# sourceMappingURL=style.css.map */

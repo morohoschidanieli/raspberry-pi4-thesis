@@ -1,6 +1,64 @@
-body{
-  background-color: $application-background-color !important;
-}
 .homepage{
   background-color: $application-background-color;
+}
+
+.overview{
+  &__container{
+
+  }
+
+  &__title{
+    color:$page-title-color;
+  }
+
+  &__buttons{
+    cursor: pointer;
+    color: #8a92a1 !important;
+  }
+
+  &__camera-stream{
+    //transform: rotate(180deg);
+    width: 100%;
+    object-fit: cover;
+
+    &__title{
+      color: #8a92a1 !important;
+    }
+
+    &__container {
+      background-color: $camera-stream-background-color;
+      padding: 20px;
+      width: 100%;
+      max-height: 490px;
+      object-fit: contain;
+
+    }
+
+    &__start-recording{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      top: 10px;
+      right:20px;
+      padding:5px 10px;
+      background: linear-gradient(90deg, rgba(69,69,69,0.4066001400560224) 100%, rgba(119,119,119,0.31976540616246496) 100%);
+      border-radius: 6px;
+      animation: blinker 1.5s linear infinite;
+    }
+  }
+}
+
+@keyframes blinker {
+  0%{
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70%{
+      opacity: 1;
+    }
+  100%{
+    opacity: 0;
+  }
 }
