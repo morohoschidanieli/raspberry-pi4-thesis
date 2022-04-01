@@ -20,6 +20,7 @@
     //transform: rotate(180deg);
     width: 100%;
     object-fit: cover;
+    max-height: 514px;
 
     &__title{
       color: #8a92a1 !important;
@@ -29,7 +30,7 @@
       background-color: $camera-stream-background-color;
       padding: 20px;
       width: 100%;
-      max-height: 490px;
+      max-height: 600px;
       object-fit: contain;
 
     }
@@ -147,6 +148,14 @@
       }
     }
   }
+}
+
+.start-camera{
+  color:green !important;
+}
+
+.stop-camera{
+  color: red !important;
 }
 
 @keyframes blinker {

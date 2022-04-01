@@ -63,12 +63,13 @@
         <div class="d-flex justify-content-between align-items-center">
           <p class="overview__camera-stream__title">Camera</p>
           <div class="overview__buttons">
+            <i id="toggle-stream" class="fas fa-video-slash px-2 start-camera"></i>
             <i id="toggle-recording-action" class="fas fa-video px-2"></i>
             <i id="toggle-capture-action" class="fas fa-camera px-2"></i>
           </div>
         </div>
         <div class="position-relative">
-          <img class="overview__camera-stream" src="stream.mjpg" onerror="this.onerror=null;this.src='/assets/img/video-stream/no-video-stream.png';" alt="camera-stream">
+          <img class="overview__camera-stream" id="stream-src" src="stream.mjpg" onerror="this.onerror=null;this.src='/assets/img/video-stream/no-video-stream.png';" alt="camera-stream">
           <div class="overview__camera-stream__start-recording js-recording-text hidden"><img style="height: 20px" class="mx-2" src="/assets/img/icons/rec-button.png" />Recording</div>
           <div id="up" class="overview__camera-stream__move-up"><i class="fas fa-arrow-up"></i></div>
           <div id="down" class="overview__camera-stream__move-right"><i class="fas fa-arrow-right"></i></div>
@@ -132,7 +133,7 @@
       </form> -->
 
   </div>
-  
+
 </div>
 
 <!-- Link to custom javascript -->
