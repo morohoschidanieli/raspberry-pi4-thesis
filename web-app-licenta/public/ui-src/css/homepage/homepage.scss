@@ -45,6 +45,107 @@
       border-radius: 6px;
       animation: blinker 1.5s linear infinite;
     }
+
+    &__move-up{
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+
+      & > .fas{
+        color:transparent;
+      }
+
+      &:hover{
+        background: linear-gradient(180deg, rgba(69,69,69,0.7931547619047619) 0%, rgba(69,69,69,0) 100%);
+
+        & > .fas{
+          color:white;
+        }
+      }
+    }
+
+    &__move-right{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      height: 100%;
+      width: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      & > .fas{
+        color:transparent;
+      }
+
+      &:hover{
+        background: linear-gradient(270deg, rgba(69,69,69,0.7931547619047619) 0%, rgba(69,69,69,0) 100%);
+
+        & > .fas{
+          color:white;
+        }
+      }
+    }
+
+    &__move-left{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      height: 100%;
+      width: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      & > .fas{
+        color:transparent;
+      }
+
+      &:hover{
+        background: linear-gradient(90deg, rgba(69,69,69,0.7931547619047619) 0%, rgba(69,69,69,0) 100%);
+
+        & > .fas{
+          color:white;
+        }
+      }
+    }
+
+    &__move-down{
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+
+      & > .fas{
+        color:transparent;
+      }
+
+      &:hover{
+        background: linear-gradient(0deg, rgba(69,69,69,0.7931547619047619) 0%, rgba(69,69,69,0) 100%);
+
+        & > .fas{
+          color:white;
+        }
+      }
+    }
   }
 }
 

@@ -3,6 +3,12 @@
 .hidden {
   display: none !important; }
 
+.show-block {
+  display: block !important; }
+
+.rotate-180 {
+  transform: rotate(180deg); }
+
 .homepage {
   background-color: #2D384F; }
 
@@ -32,6 +38,75 @@
     background: linear-gradient(90deg, rgba(69, 69, 69, 0.4066001401) 100%, rgba(119, 119, 119, 0.3197654062) 100%);
     border-radius: 6px;
     animation: blinker 1.5s linear infinite; }
+  .overview__camera-stream__move-up {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0; }
+    .overview__camera-stream__move-up > .fas {
+      color: transparent; }
+    .overview__camera-stream__move-up:hover {
+      background: linear-gradient(180deg, rgba(69, 69, 69, 0.7931547619) 0%, rgba(69, 69, 69, 0) 100%); }
+      .overview__camera-stream__move-up:hover > .fas {
+        color: white; }
+  .overview__camera-stream__move-right {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 100%;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    .overview__camera-stream__move-right > .fas {
+      color: transparent; }
+    .overview__camera-stream__move-right:hover {
+      background: linear-gradient(270deg, rgba(69, 69, 69, 0.7931547619) 0%, rgba(69, 69, 69, 0) 100%); }
+      .overview__camera-stream__move-right:hover > .fas {
+        color: white; }
+  .overview__camera-stream__move-left {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 100%;
+    width: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0; }
+    .overview__camera-stream__move-left > .fas {
+      color: transparent; }
+    .overview__camera-stream__move-left:hover {
+      background: linear-gradient(90deg, rgba(69, 69, 69, 0.7931547619) 0%, rgba(69, 69, 69, 0) 100%); }
+      .overview__camera-stream__move-left:hover > .fas {
+        color: white; }
+  .overview__camera-stream__move-down {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0; }
+    .overview__camera-stream__move-down > .fas {
+      color: transparent; }
+    .overview__camera-stream__move-down:hover {
+      background: linear-gradient(0deg, rgba(69, 69, 69, 0.7931547619) 0%, rgba(69, 69, 69, 0) 100%); }
+      .overview__camera-stream__move-down:hover > .fas {
+        color: white; }
 
 @keyframes blinker {
   0% {

@@ -70,6 +70,10 @@
         <div class="position-relative">
           <img class="overview__camera-stream" src="stream.mjpg" onerror="this.onerror=null;this.src='/assets/img/video-stream/no-video-stream.png';" alt="camera-stream">
           <div class="overview__camera-stream__start-recording js-recording-text hidden"><img style="height: 20px" class="mx-2" src="/assets/img/icons/rec-button.png" />Recording</div>
+          <div id="up" class="overview__camera-stream__move-up"><i class="fas fa-arrow-up"></i></div>
+          <div id="down" class="overview__camera-stream__move-right"><i class="fas fa-arrow-right"></i></div>
+          <div id="right" class="overview__camera-stream__move-down"><i class="fas fa-arrow-up rotate-180"></i></div>
+          <div id="left" class="overview__camera-stream__move-left"><i class="fas fa-arrow-right rotate-180"></i></div>
         </div>
       </div>
       <div class="col-12 col-sm-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
@@ -128,44 +132,7 @@
       </form> -->
 
   </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <button id="left">Left</button>
-  <button id="up">Up</button>
-  <button id="down">Down</button>
-  <button id="right">Right</button>
+  
 </div>
 
 <!-- Link to custom javascript -->
