@@ -17,6 +17,10 @@
 .overview__buttons {
   cursor: pointer;
   color: #8a92a1 !important; }
+.overview__button {
+  background-color: transparent;
+  border: none;
+  outline: none; }
 .overview__camera-stream {
   width: 100%;
   object-fit: cover;

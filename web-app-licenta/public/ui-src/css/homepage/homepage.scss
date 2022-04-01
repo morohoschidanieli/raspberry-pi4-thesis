@@ -16,6 +16,12 @@
     color: #8a92a1 !important;
   }
 
+  &__button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
   &__camera-stream{
     //transform: rotate(180deg);
     width: 100%;
