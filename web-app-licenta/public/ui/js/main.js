@@ -102,6 +102,8 @@ cameraModule.refresh();
 cameraModule.toggleCapture();
 cameraModule.toggleVideoStream();
 
+const connectionIp='192.168.0.122:9000';
+
 // get button elements
 // var button_red = document.getElementById( 'button-red' );
 // var button_green = document.getElementById( 'button-green' );
@@ -227,7 +229,7 @@ const temperatureModule={
             $hot_gray: '#666666',
 
             isConnectionActive: false,
-            connection: io( '192.168.0.122:9000' ),
+            connection: io(connectionIp),
         }
     },
 
