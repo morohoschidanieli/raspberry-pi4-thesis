@@ -1,0 +1,148 @@
+.temperature-container{
+  width: 100%;
+}
+
+.progress-bar{
+  position: absolute;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: $application-background-color !important;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  font-size: 20px;
+
+  &__background{
+    position: relative;
+    height: 160px;
+    width: 160px;
+    //background: conic-gradient($cold 14.28%, $cool 0 28.56%, $slightly-cool 0 42.84%, $neutral 0 57.12%, $slightly-warm 0 71.4%, $warm 0 85.68%, $hot 0 100%);
+    background: conic-gradient($cold-gray 14.28%, $cool-gray 0 28.56%, $slightly-cool-gray 0 42.84%, $neutral-gray 0 57.12%, $slightly-warm-gray 0 71.4%, $warm-gray 0 85.68%, $hot-gray 0 100%);
+    border-radius: 50%;
+  }
+}
+
+.temperature-legend{
+  display: flex;
+  color: white;
+  font-weight: 300;
+
+  &__text{
+    margin-left: 14px;
+  }
+
+  //color
+  &__cold{
+    background-color: $cold;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__cold-gray{
+    background-color: $cold-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //color
+  &__cool{
+    background-color: $cool;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__cool-gray{
+    background-color: $cool-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //color
+  &__slightly-cool{
+    background-color: $slightly-cool;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__slightly-cool-gray{
+    background-color: $slightly-cool-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //color
+  &__neutral{
+    background-color: $neutral;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__neutral-gray{
+    background-color: $neutral-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //color
+  &__slightly-warm{
+    background-color: $slightly-warm;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__slightly-warm-gray{
+    background-color: $slightly-warm-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //color
+  &__warm{
+    background-color: $warm;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__warm-gray{
+    background-color: $warm-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //color
+  &__hot{
+    background-color: $hot;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  //gray
+  &__hot-gray{
+    background-color: $hot-gray;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+}
