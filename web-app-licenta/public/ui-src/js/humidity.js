@@ -40,7 +40,7 @@ const humidityModule = {
     },
 
     drawHumidity: function(sensorHumidity){
-        let humidity = sensorHumidity.toFixed(2);
+        let humidity = sensorHumidity;
         humidityModule.config.$humidityLoading.hide();
         humidityModule.config.$humidityValue.text(`${humidity} %`);
 

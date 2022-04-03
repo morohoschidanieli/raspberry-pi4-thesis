@@ -39,7 +39,7 @@ const temperatureModule={
     },
 
     drawProgressBar: function(sensorTemperature){
-        let temperature =sensorTemperature.toFixed(2);
+        let temperature =sensorTemperature;
 
         if(temperature <= 20 && temperature >= 18){
             let absValue = 18-temperature;
