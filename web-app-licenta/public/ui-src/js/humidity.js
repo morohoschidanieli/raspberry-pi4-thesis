@@ -11,7 +11,7 @@ const humidityModule = {
             $poor_humidity_color: '#f54454',
 
             isConnectionActive: false,
-            connection: io(connectionIp)
+            connection: io('192.168.0.116:9000'),
         }
     },
 
@@ -32,12 +32,11 @@ const humidityModule = {
         humidityModule.config.connection.on( 'sht21Event', (data) => {
             if(data.humidity !== ' '){
                 humidityModule.config.$humidityLoading.hide();
-                humidityModule.config.drawHumidity(data.humidity);
+                humidityModule.drawHumidity(data.humidity);
             }
-            console.log(data.humidity);
         } );
-        let number = 32.12312;
-        humidityModule.drawHumidity(number);
+        // let number = 32.12312;
+        // humidityModule.drawHumidity(number);
     },
 
     drawHumidity: function(sensorHumidity){

@@ -25,7 +25,7 @@ const temperatureModule={
             $hot_gray: '#666666',
 
             isConnectionActive: false,
-            connection: io(connectionIp),
+            connection: io('192.168.0.116:9000'),
         }
     },
 
@@ -35,10 +35,7 @@ const temperatureModule={
                 temperatureModule.config.$temperatureLoading.hide();
                 temperatureModule.drawProgressBar(data.temperature);
             }
-            console.log(data.temperature);
         } );
-        let number = 29.12312;
-        temperatureModule.drawProgressBar(number);
     },
 
     drawProgressBar: function(sensorTemperature){
