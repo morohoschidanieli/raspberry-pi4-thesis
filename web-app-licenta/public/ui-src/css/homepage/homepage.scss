@@ -27,6 +27,7 @@
     width: 100%;
     object-fit: cover;
     max-height: 514px;
+    transform: rotate(180deg);
 
     &__title{
       color: #8a92a1 !important;

@@ -21,7 +21,20 @@ const cameraModule = {
 
             //Stream source
             $streamSource: $("#stream-src"),
+
+            isConnectionActive: false,
+            connection: io(connectionIp),
         }
+        cameraModule.emitLeftEvent();
+        cameraModule.emitRightEvent();
+        cameraModule.emitUpEvent();
+        cameraModule.emitDownEvent();
+
+        cameraModule.config.$moveUpCameraButton.on('click',cameraModule.emitUpEvent());
+        cameraModule.config.$moveDownCameraButton.on('click',cameraModule.emitDownEvent());
+        cameraModule.config.$moveRightCameraButton.on('click',cameraModule.emitRightEvent());
+        cameraModule.config.$moveLeftCameraButton.on('click',cameraModule.emitLeftEvent());
+
 
         let img = $("<img src='stream.mjpg' />");
 
@@ -93,6 +106,22 @@ const cameraModule = {
         cameraModule.config.$refreshStreamButton.click(function(){
             cameraModule.init()
         });
+    },
+
+    emitLeftEvent: function(){
+        cameraModule.config.connection.emit( 'moveServoLeft' );
+    },
+
+    emitRightEvent: function(){
+        cameraModule.config.connection.emit( 'moveServoRight' );
+    },
+
+    emitUpEvent: function(){
+        cameraModule.config.connection.emit( 'moveServoUp' );
+    },
+
+    emitDownEvent: function(){
+        cameraModule.config.connection.emit( 'moveServoDown' );
     }
 
 };

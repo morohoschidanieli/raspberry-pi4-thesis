@@ -24,7 +24,8 @@
 .overview__camera-stream {
   width: 100%;
   object-fit: cover;
-  max-height: 514px; }
+  max-height: 514px;
+  transform: rotate(180deg); }
   .overview__camera-stream__title {
     color: #8a92a1 !important; }
   .overview__camera-stream__container {
