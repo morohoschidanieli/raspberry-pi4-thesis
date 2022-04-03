@@ -30,10 +30,18 @@ const cameraModule = {
         cameraModule.emitUpEvent();
         cameraModule.emitDownEvent();
 
-        cameraModule.config.$moveUpCameraButton.on('click',cameraModule.emitUpEvent());
-        cameraModule.config.$moveDownCameraButton.on('click',cameraModule.emitDownEvent());
-        cameraModule.config.$moveRightCameraButton.on('click',cameraModule.emitRightEvent());
-        cameraModule.config.$moveLeftCameraButton.on('click',cameraModule.emitLeftEvent());
+        cameraModule.config.$moveUpCameraButton.on('click',function(){
+            cameraModule.emitUpEvent();
+        });
+        cameraModule.config.$moveDownCameraButton.on('click',function(){
+            cameraModule.emitDownEvent();
+        });
+        cameraModule.config.$moveRightCameraButton.on('click',function(){
+            cameraModule.emitRightEvent();
+        });
+        cameraModule.config.$moveLeftCameraButton.on('click',function(){
+            cameraModule.emitLeftEvent();
+        });
 
 
         let img = $("<img src='stream.mjpg' />");
@@ -69,9 +77,8 @@ const cameraModule = {
 
     toggleVideoStream: function () {
         cameraModule.config.$toggleStreamButton.click(function () {
-            cameraModule.config.$toggleStreamButton.toggleClass("stop-camera start-camera");
-
             const hasStartCameraClass = cameraModule.config.$toggleStreamButton.hasClass('start-camera');
+            cameraModule.config.$toggleStreamButton.toggleClass("stop-camera start-camera");
 
             cameraModule.config.$toggleCaptureButton.attr("disabled", hasStartCameraClass ? true : false);
             cameraModule.config.$toggleRecordingButton.attr("disabled", hasStartCameraClass ? true : false);
