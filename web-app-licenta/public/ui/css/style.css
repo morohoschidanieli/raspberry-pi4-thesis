@@ -253,4 +253,114 @@ body {
     width: 10px;
     border-radius: 50%; }
 
+.humidity-container {
+  width: 100%;
+  background-color: var(--bg); }
+
+.humidity {
+  position: absolute;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2D384F !important;
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  font-size: 20px; }
+  .humidity__background {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    background: url(https://image.ibb.co/fmHm66/wave.png);
+    background-repeat: repeat-x;
+    animation: filling 10s ease-in-out infinite;
+    border-radius: 50%; }
+
+@keyframes filling {
+  50% {
+    background-position: 3000px 0px; }
+  100% {
+    background-position: 6000px 350px; } }
+.humidity-legend {
+  display: flex;
+  color: white;
+  font-weight: 300; }
+  .humidity-legend__text {
+    margin-left: 14px; }
+  .humidity-legend__cold {
+    background-color: #13D9E4;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__cold-gray {
+    background-color: #ababab;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__cool {
+    background-color: #116FE3;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__cool-gray {
+    background-color: #9c9c9c;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__slightly-cool {
+    background-color: #634FDC;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__slightly-cool-gray {
+    background-color: #949494;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__neutral {
+    background-color: #923FD7;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__neutral-gray {
+    background-color: #8c8c8c;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__slightly-warm {
+    background-color: #BB3ED6;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__slightly-warm-gray {
+    background-color: #828282;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__warm {
+    background-color: #D73F94;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__warm-gray {
+    background-color: #737373;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__hot {
+    background-color: #D94B41;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .humidity-legend__hot-gray {
+    background-color: #666666;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+
+:root {
+  --bg: #000;
+  --font-size:12px; }
+
 /*# sourceMappingURL=style.css.map */

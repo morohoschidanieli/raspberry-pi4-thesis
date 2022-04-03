@@ -204,6 +204,7 @@ downButton.addEventListener( 'click' , emitDownEvent);
 
 const temperatureModule={
     init: function (){
+        document.documentElement.style.setProperty('--bg','red');
         temperatureModule.config = {
             $temperatureContainer: $(".js-temperature-progress-bar"),
             $temperatureLoading: $(".js-loading-temperature"),
@@ -235,64 +236,64 @@ const temperatureModule={
 
     getTemperature: function(){
         temperatureModule.config.connection.on( 'sht21Event', (data) => {
-            //document.getElementById('temperatureData').innerHTML="Temperatura: " + data.temperature + ' gradC';
-            //document.getElementById('humidityData').innerHTML="Umiditate: " + data.humidity + ' %';
             if(data.temperature !== ' '){
                 temperatureModule.config.$temperatureContainer.hide();
                 temperatureModule.config.$temperatureContainer.text(`${data.temperature} °C`);
             }
-
             console.log(data);
         } );
-        let temperature =25.12;
-        if(temperature >= 20 && temperature <=21.5){
-            let absValue = 20-temperature;
-            let gradientColor = Math.abs(9.52*absValue);
+        let number = 29.5;
+        temperatureModule.drawProgressBar(number);
+    },
+
+    drawProgressBar: function(sensorTemperature){
+        let temperature =sensorTemperature.toFixed(2);
+        if(temperature <= 20 && temperature >= 18){
+            let absValue = 18-temperature;
+            let gradientColor = Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
             temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} ${gradientColor}%,${temperatureModule.config.$cool_gray} 0 28.56%, ${temperatureModule.config.$slightly_cool_gray} 0 42.84%, ${temperatureModule.config.$neutral_gray} 0 57.12%, ${temperatureModule.config.$slightly_warm_gray
             } 0 71.4%, ${temperatureModule.config.$warm_gray} 0 85.68%, ${temperatureModule.config.$hot_gray} 0 100%)`);
         }
-        if(temperature >= 21.5 && temperature <=23){
-            let absValue = 21.5-temperature;
-            let gradientColor = 14.28 + Math.abs(9.52*absValue);
+        if(temperature >= 20 && temperature <=22){
+            let absValue = 20-temperature;
+            let gradientColor = 14.28 + Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
             temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%,${temperatureModule.config.$cool} 0 ${gradientColor}%, ${temperatureModule.config.$slightly_cool_gray} 0 42.84%, ${temperatureModule.config.$neutral_gray} 0 57.12%, ${temperatureModule.config.$slightly_warm_gray
             } 0 71.4%, ${temperatureModule.config.$warm_gray} 0 85.68%, ${temperatureModule.config.$hot_gray} 0 100%)`);
         }
-        if(temperature >= 23 && temperature <=24.5){
-            let absValue = 23-temperature;
+        if(temperature >= 22 && temperature <=24){
+            let absValue = 22-temperature;
             let gradientColor =28.56 +  Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
             temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%, ${temperatureModule.config.$cool} 0 28.56%, ${temperatureModule.config.$slightly_cool} 0 ${gradientColor}%, ${temperatureModule.config.$neutral_gray} 0 57.12%, ${temperatureModule.config.$slightly_warm_gray} 0 71.4%, ${temperatureModule.config.$warm_gray} 0 85.68%, ${temperatureModule.config.$hot_gray} 0 100%)`);
         }
-        if(temperature >= 24.5 && temperature <=26){
-            let absValue = 24.5-temperature;
-            let gradientColor = 42.84 +  Math.abs(9.52*absValue);
+        if(temperature >= 24 && temperature <=26){
+            let absValue = 24-temperature;
+            let gradientColor = 42.84 +  Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
             temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%, ${temperatureModule.config.$cool} 0 28.56%, ${temperatureModule.config.$slightly_cool} 0 42.84%, ${temperatureModule.config.$neutral} 0 ${gradientColor}%, ${temperatureModule.config.$slightly_warm_gray} 0 71.4%, ${temperatureModule.config.$warm_gray} 0 85.68%, ${temperatureModule.config.$hot_gray} 0 100%)`);
         }
-        if(temperature >= 26 && temperature <=27.5){
+        if(temperature >= 26 && temperature <=28){
             let absValue = 26-temperature;
-            let gradientColor =57.12 + Math.abs(9.52*absValue);
+            let gradientColor =57.12 + Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
             temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%, ${temperatureModule.config.$cool} 0 28.56%, ${temperatureModule.config.$slightly_cool} 0 42.84%, ${temperatureModule.config.$neutral} 0 57.12%, ${temperatureModule.config.$slightly_warm} 0 ${gradientColor}%, ${temperatureModule.config.$warm_gray} 0 85.68%, ${temperatureModule.config.$hot_gray} 0 100%)`);
 
         }
-        if(temperature >= 27.5 && temperature <=29){
-            let absValue = 27.5-temperature;
-            let gradientColor =71.4 + Math.abs(9.52*absValue);
+        if(temperature >= 28 && temperature <=30){
+            let absValue = 28-temperature;
+            let gradientColor =71.4 + Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
             temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%, ${temperatureModule.config.$cool} 0 28.56%, ${temperatureModule.config.$slightly_cool} 0 42.84%, ${temperatureModule.config.$neutral} 0 57.12%, ${temperatureModule.config.$slightly_warm} 0 71.4%, ${temperatureModule.config.$warm} 0 ${gradientColor}%, ${temperatureModule.config.$hot_gray} 0 100%)`);
 
         }
-        if(temperature >= 29 && temperature <=30.5){
-            let absValue = 29.-temperature;
-            let gradientColor =85.68 + Math.abs(9.52*absValue);
+        if(temperature >= 30 && temperature <=32){
+            let absValue = 30-temperature;
+            let gradientColor =85.68 + Math.abs(7.14*absValue);
             temperatureModule.config.$temperatureContainer.text(`${temperature} °C`);
-            temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%, ${temperatureModule.config.$cool} 0 28.56%, ${temperatureModule.config.$slightly_cool} 0 42.84%, ${temperatureModule.config.$neutral} 0 57.12%, ${temperatureModule.config.$slightly_warm} 0 71.4%, ${temperatureModule.config.$warm} 0 85.68%, ${temperatureModule.config.$hot} 0 ${gradientColor}%)`);
-
+            temperatureModule.config.$progressBar.css('background',`conic-gradient(${temperatureModule.config.$cold} 14.28%, ${temperatureModule.config.$cool} 0 28.56%, ${temperatureModule.config.$slightly_cool} 0 42.84%, ${temperatureModule.config.$neutral} 0 57.12%, ${temperatureModule.config.$slightly_warm} 0 71.4%, ${temperatureModule.config.$warm} 0 85.68%,${temperatureModule.config.$hot} 0 ${gradientColor}%, ${temperatureModule.config.$hot_gray} 0 90%)`);
         }
-
     },
 
     connect: function(){
