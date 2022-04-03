@@ -23,7 +23,7 @@ const cameraModule = {
             $streamSource: $("#stream-src"),
 
             isConnectionActive: false,
-            connection: io(connectionIp),
+            connection: io('192.168.0.116:9000'),
         }
         cameraModule.emitLeftEvent();
         cameraModule.emitRightEvent();
@@ -176,7 +176,7 @@ const humidityModule = {
     },
 
     drawHumidity: function(sensorHumidity){
-        let humidity = sensorHumidity.toFixed(2);
+        let humidity = sensorHumidity;
         humidityModule.config.$humidityLoading.hide();
         humidityModule.config.$humidityValue.text(`${humidity} %`);
 
@@ -340,7 +340,7 @@ const temperatureModule={
     },
 
     drawProgressBar: function(sensorTemperature){
-        let temperature =sensorTemperature.toFixed(2);
+        let temperature =sensorTemperature;
 
         if(temperature <= 20 && temperature >= 18){
             let absValue = 18-temperature;

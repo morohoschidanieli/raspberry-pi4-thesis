@@ -23,7 +23,7 @@ const cameraModule = {
             $streamSource: $("#stream-src"),
 
             isConnectionActive: false,
-            connection: io(connectionIp),
+            connection: io('192.168.0.116:9000'),
         }
         cameraModule.emitLeftEvent();
         cameraModule.emitRightEvent();
