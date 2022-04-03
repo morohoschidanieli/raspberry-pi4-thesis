@@ -1,6 +1,6 @@
 .humidity-container{
   width: 100%;
-  background-color: var(--bg);
+  //background-color: var(--bg);
 }
 
 .humidity{
@@ -19,15 +19,14 @@
     position: relative;
     height: 160px;
     width: 160px;
-    background: url(https://image.ibb.co/fmHm66/wave.png);
+    background: url(../../img/wave.png);
     background-repeat: repeat-x;
     animation: filling 10s ease-in-out infinite;
     border-radius: 50%;
+    border: 2px solid $humidity-border-color;
+    font-size: 20px;
+    color: $font-color;
   }
-}
-@keyframes filling {
-  50% {background-position: 3000px 0px;}
-  100% {background-position: 6000px 350px;}
 }
 
 .humidity-legend{
@@ -39,118 +38,27 @@
     margin-left: 14px;
   }
 
-  //color
-  &__cold{
-    background-color: $cold;
+  //colors
+  &__ideal{
+    background-color: $ideal-humidity-color;
     height: 10px;
     width: 10px;
     border-radius: 50%;
   }
 
-  //gray
-  &__cold-gray{
-    background-color: $cold-gray;
+  &__fair{
+    background-color: $fair-humidity-color;
     height: 10px;
     width: 10px;
     border-radius: 50%;
   }
 
-  //color
-  &__cool{
-    background-color: $cool;
+  &__poor{
+    background-color: $poor-humidity-color;
     height: 10px;
     width: 10px;
     border-radius: 50%;
   }
-
-  //gray
-  &__cool-gray{
-    background-color: $cool-gray;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //color
-  &__slightly-cool{
-    background-color: $slightly-cool;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //gray
-  &__slightly-cool-gray{
-    background-color: $slightly-cool-gray;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //color
-  &__neutral{
-    background-color: $neutral;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //gray
-  &__neutral-gray{
-    background-color: $neutral-gray;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //color
-  &__slightly-warm{
-    background-color: $slightly-warm;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //gray
-  &__slightly-warm-gray{
-    background-color: $slightly-warm-gray;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //color
-  &__warm{
-    background-color: $warm;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //gray
-  &__warm-gray{
-    background-color: $warm-gray;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //color
-  &__hot{
-    background-color: $hot;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
-  //gray
-  &__hot-gray{
-    background-color: $hot-gray;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-  }
-
 }
 
 :root {
@@ -158,4 +66,9 @@
   --bg: #000;
   --font-size:12px;
 
+}
+
+@keyframes filling {
+  50% {background-position: 4000px 60px;}
+  100% {background-position: 160px 60px;}
 }

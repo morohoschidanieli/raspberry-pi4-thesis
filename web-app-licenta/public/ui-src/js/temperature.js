@@ -1,6 +1,5 @@
 const temperatureModule={
     init: function (){
-        document.documentElement.style.setProperty('--bg','red');
         temperatureModule.config = {
             $temperatureContainer: $(".js-temperature-progress-bar"),
             $temperatureLoading: $(".js-loading-temperature"),
@@ -33,17 +32,18 @@ const temperatureModule={
     getTemperature: function(){
         temperatureModule.config.connection.on( 'sht21Event', (data) => {
             if(data.temperature !== ' '){
-                temperatureModule.config.$temperatureContainer.hide();
-                temperatureModule.config.$temperatureContainer.text(`${data.temperature} °C`);
+                temperatureModule.config.$temperatureLoading.hide();
+                temperatureModule.drawProgressBar(data.temperature);
             }
-            console.log(data);
+            console.log(data.temperature);
         } );
-        let number = 29.5;
+        let number = 29.12312;
         temperatureModule.drawProgressBar(number);
     },
 
     drawProgressBar: function(sensorTemperature){
         let temperature =sensorTemperature.toFixed(2);
+
         if(temperature <= 20 && temperature >= 18){
             let absValue = 18-temperature;
             let gradientColor = Math.abs(7.14*absValue);

@@ -1,6 +1,9 @@
 //Application
 $application-background-color: #2D384F;
 
+//
+$font-color:white;
+
 //Navbar
 $navbar-item-color: #8a92a1;
 $navbar-item-color-hover: white;
@@ -27,3 +30,9 @@ $neutral-gray: #8c8c8c;
 $slightly-warm-gray: #828282;
 $warm-gray: #737373;
 $hot-gray: #666666;
+
+//humidity
+$humidity-border-color: #2171b4;
+$ideal-humidity-color: #4ac687;
+$fair-humidity-color: #ffc001;
+$poor-humidity-color: #f54454;
