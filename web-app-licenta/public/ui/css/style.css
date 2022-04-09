@@ -311,5 +311,18 @@ body {
     background-position: 4000px 60px; }
   100% {
     background-position: 160px 60px; } }
+.weather__day {
+  color: white; }
+.weather__street, .weather__county {
+  color: white; }
+.weather__temperature-value {
+  line-height: 36px;
+  color: white; }
+.weather__humidity-value {
+  line-height: 36px;
+  color: white; }
+.weather__wind-value {
+  line-height: 36px;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */

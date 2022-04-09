@@ -1,0 +1,24 @@
+.weather{
+  &__day{
+    color:white;
+  }
+
+  &__street, &__county{
+    color:white;
+  }
+
+  &__temperature-value{
+    line-height: 36px;
+    color:white;
+  }
+
+  &__humidity-value{
+    line-height: 36px;
+    color:white;
+  }
+
+  &__wind-value{
+    line-height: 36px;
+    color:white;
+  }
+}
