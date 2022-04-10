@@ -465,7 +465,7 @@ const weatherModule = {
                     //Append weather component for next 3 days
                     weatherModule.appendWeatherComponent(weatherModule.config.numberOfFutereDaysTemperatyre, data);
 
-                    // return fetch(getStreetUrl)
+                    // return fetch(getStreetUrl)cd ../
                     //     .then(response => response.json())
                     //     .then(data => {
                     //         const county = data.results[0].components.county;

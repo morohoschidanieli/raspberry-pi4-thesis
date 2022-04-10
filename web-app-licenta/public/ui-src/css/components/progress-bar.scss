@@ -9,15 +9,15 @@
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: $application-background-color !important;
-  height: 130px;
-  width: 130px;
+  height: 115px;
+  width: 115px;
   border-radius: 50%;
   font-size: 20px;
 
   &__background{
     position: relative;
-    height: 160px;
-    width: 160px;
+    height: 135px;
+    width: 135px;
     //background: conic-gradient($cold 14.28%, $cool 0 28.56%, $slightly-cool 0 42.84%, $neutral 0 57.12%, $slightly-warm 0 71.4%, $warm 0 85.68%, $hot 0 100%);
     background: conic-gradient($cold-gray 14.28%, $cool-gray 0 28.56%, $slightly-cool-gray 0 42.84%, $neutral-gray 0 57.12%, $slightly-warm-gray 0 71.4%, $warm-gray 0 85.68%, $hot-gray 0 100%);
     border-radius: 50%;

@@ -168,14 +168,14 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #2D384F !important;
-  height: 130px;
-  width: 130px;
+  height: 115px;
+  width: 115px;
   border-radius: 50%;
   font-size: 20px; }
   .progress-bar__background {
     position: relative;
-    height: 160px;
-    width: 160px;
+    height: 135px;
+    width: 135px;
     background: conic-gradient(#ababab 14.28%, #9c9c9c 0 28.56%, #949494 0 42.84%, #8c8c8c 0 57.12%, #828282 0 71.4%, #737373 0 85.68%, #666666 0 100%);
     border-radius: 50%; }
 
@@ -272,8 +272,8 @@ body {
   font-size: 20px; }
   .humidity__background {
     position: relative;
-    height: 160px;
-    width: 160px;
+    height: 135px;
+    width: 135px;
     background: url(../../img/wave.png);
     background-repeat: repeat-x;
     animation: filling 10s ease-in-out infinite;
