@@ -7,7 +7,7 @@ const weatherModule = {
 
             $tempValueCurrent : $('.js-current-temp-value'),
 
-            numberOfFutereDaysTemperatyre : 4,
+            numberOfFutereDaysTemperatyre : 6,
 
             //icons id
             $weather_icon_current_day : $('.js-current-day-weather-icon'),
@@ -43,7 +43,7 @@ const weatherModule = {
                     weatherModule.config.$weather_icon_current_day.attr('src',`https://openweathermap.org/img/wn/${iconId}@2x.png`);
 
                     //Append weather component for next 3 days
-                    weatherModule.appendWeatherComponent(3, data);
+                    weatherModule.appendWeatherComponent(weatherModule.config.numberOfFutereDaysTemperatyre, data);
 
                     // return fetch(getStreetUrl)
                     //     .then(response => response.json())
@@ -72,13 +72,13 @@ const weatherModule = {
     },
 
     appendWeatherComponent : function(numberofDays, data){
-        let weatherApp = $("<div class='col-4 d-flex flex-column justify-content-center align-items-center'>");
+        let weatherApp = $("<div class='col-lg-2 col-xl-4 d-flex flex-column justify-content-center align-items-center'>");
         let nextDays = weatherModule.generateNextDays(weatherModule.config.numberOfFutereDaysTemperatyre);
 
         for(let i=0; i < numberofDays; i++){
             weatherApp.append(`<div class='weather__day'>${nextDays[i]}</div>`);
             weatherApp.append(`<img class='js-first-day-weather-icon' src='https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png' style="height: 100px; width: 100px" alt='wheater-icon' />`)
-
+            console.log(weatherModule.config.numberOfFutereDaysTemperatyre);
             let dataComponent = $(`<div class='weather__values d-flex flex-column align-items-start'></div>`);
             let weatherValue = $(`<div class='weather__temperature-value'></div>`);
 
@@ -103,7 +103,7 @@ const weatherModule = {
 
             weatherApp.append(dataComponent);
             $(".js-weather-container").append(weatherApp);
-            weatherApp = $("<div class='col-4 d-flex flex-column justify-content-center align-items-center'>");
+            weatherApp = $(`<div class='col-lg-2 col-xl-4 d-flex ${i > 1 ? 'd-md-flex d-none d-xl-none d-sm-none' : ''} flex-column justify-content-center align-items-center'>`);
         }
     }
 }

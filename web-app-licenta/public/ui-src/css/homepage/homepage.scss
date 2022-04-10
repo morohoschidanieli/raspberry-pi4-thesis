@@ -1,6 +1,11 @@
 .homepage{
   background-color: $application-background-color;
+
+  &__section{
+    background-color: $camera-stream-background-color;
+  }
 }
+
 
 .overview{
   &__container{

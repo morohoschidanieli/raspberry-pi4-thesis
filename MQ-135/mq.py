@@ -29,7 +29,8 @@ class MQ():
         self.Ro = Ro
         self.MQ_PIN = analogPin
         self.adc = MCP3008()
-        
+
+
         self.COCurve = [3,1.5,-0.15]     # two points are taken from the curve. 
                                             # with these two points, a line is formed which is "approximately equivalent" 
                                             # to the original curve.

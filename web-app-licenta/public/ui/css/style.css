@@ -11,6 +11,8 @@
 
 .homepage {
   background-color: #2D384F; }
+  .homepage__section {
+    background-color: #2f3b52; }
 
 .overview__title {
   color: white; }
