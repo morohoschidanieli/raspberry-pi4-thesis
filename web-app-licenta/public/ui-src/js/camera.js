@@ -80,8 +80,8 @@ const cameraModule = {
             const hasStartCameraClass = cameraModule.config.$toggleStreamButton.hasClass('start-camera');
             cameraModule.config.$toggleStreamButton.toggleClass("stop-camera start-camera");
 
-            cameraModule.config.$toggleCaptureButton.attr("disabled", hasStartCameraClass ? true : false);
-            cameraModule.config.$toggleRecordingButton.attr("disabled", hasStartCameraClass ? true : false);
+            cameraModule.config.$toggleCaptureButton.attr("disabled", hasStartCameraClass ? false : true);
+            cameraModule.config.$toggleRecordingButton.attr("disabled", hasStartCameraClass ? false : true);
 
             if (hasStartCameraClass) {
                 let img = $("<img src='stream.mjpg' />");

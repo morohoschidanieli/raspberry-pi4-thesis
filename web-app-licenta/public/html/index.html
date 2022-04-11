@@ -78,7 +78,7 @@
           <div id="left" class="overview__camera-stream__move-left" style="display: none;"><i class="fas fa-arrow-right rotate-180"></i></div>
         </div>
       </div>
-      <div class="d-flex flex-column col-12 col-sm-12 col-md-12 col-xl-4 p-3 overview__camera-stream__container position-relative">
+      <div class="d-flex flex-column col-12 col-sm-12 col-md-12 col-xl-4 p-3 mt-3 mt-xl-0 overview__camera-stream__container position-relative">
           <p class="overview__camera-stream__title p-2 p-sm-2 p-md-3 p-xl-0">Outside temperature</p>
           <div class="weather__container h-100">
             <div class="row mx-0 w-100 h-100">
@@ -116,8 +116,8 @@
       <p class="overview__camera-stream__title">Sensors data</p>
 
 <!--      Inside Temperature-->
-      <div class="col-md-6 col-lg-5 col-xl-4">
-        <div class="row w-100 mx-sm-0 px-3">
+      <div class="col-md-6 col-lg-5 col-xl-4 py-3">
+        <div class="row w-100 mx-sm-0 px-3 mx-0">
           <div class="overview__camera-stream__title row w-100 justify-content-center align-items-center py-3">Inside temperature</div>
           <div class="da d-flex flex-row justify-content-center align-items-center h-100">
           <div class="col-6 col-sm-4 col-md-6 temperature-container d-flex flex-row justify-content-center align-items-start">
@@ -162,8 +162,8 @@
       </div>
 
 <!--      Inside humidity-->
-      <div class="col-md-6 col-lg-5 col-xl-4">
-        <div class="row w-100 mx-sm-0 px-3">
+      <div class="col-md-6 col-lg-5 col-xl-4 py-3">
+        <div class="row w-100 mx-sm-0 px-3 mx-0">
           <div class="overview__camera-stream__title row w-100 justify-content-center align-items-center py-3">Humidity</div>
           <div class="da d-flex flex-row justify-content-center align-items-center h-100">
           <div class="col-6 col-sm-4 col-md-6 humidity-container d-flex flex-row justify-content-center align-items-start">
@@ -174,43 +174,49 @@
           <div class="col-6 col-sm-4 col-md-6 humidity-legend d-flex flex-column justify-content-center">
             <div class="d-flex align-items-center">
               <div class="humidity-legend__ideal"></div>
-              <span class="humidity-legend__text">Ideal humidity</span>
+              <span class="humidity-legend__text">Ideal</span>
             </div>
             <div class="d-flex align-items-center">
               <div class="humidity-legend__fair"></div>
-              <span class="humidity-legend__text">Fair humidity</span>
+              <span class="humidity-legend__text">Fair</span>
             </div>
             <div class="d-flex align-items-center">
               <div class="humidity-legend__poor"></div>
-              <span class="humidity-legend__text">Poor humidity</span>
+              <span class="humidity-legend__text">Poor</span>
             </div>
           </div>
           </div>
         </div>
       </div>
 
-      <!--      Inside humidity-->
-      <div class="col-md-6 col-lg-5 col-xl-4">
-        <div class="row w-100 mx-sm-0 px-3">
-          <div class="overview__camera-stream__title row w-100 justify-content-center align-items-center py-3">Humidity</div>
+      <!--      Inside Smoke-->
+      <div class="col-md-6 col-lg-5 col-xl-4 py-3">
+        <div class="row w-100 mx-sm-0 px-3 mx-0">
+          <div class="overview__camera-stream__title row w-100 justify-content-center align-items-center py-3">Inside smoke</div>
           <div class="da d-flex flex-row justify-content-center align-items-center h-100">
-            <div class="col-6 col-sm-4 col-md-6 humidity-container d-flex flex-row justify-content-center align-items-start">
-              <div class="humidity__background js-humidity-value d-flex justify-content-center align-items-center">
-                <img class="js-loading-humidity" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
+            <div class="col-6 col-sm-4 col-md-6 smoke-container d-flex flex-row justify-content-center align-items-start">
+              <div class="progress-bar-smoke__background">
+                <div class="progress-bar-smoke d-flex justify-content-center align-items-center js-smoke-progress-bar">
+                  <img class="js-loading-smoke" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
+                </div>
               </div>
             </div>
-            <div class="col-6 col-sm-4 col-md-6 humidity-legend d-flex flex-column justify-content-center">
+            <div class="col-6 col-sm-4 col-md-6 smoke-legend d-flex flex-column justify-content-center">
               <div class="d-flex align-items-center">
-                <div class="humidity-legend__ideal"></div>
-                <span class="humidity-legend__text">Ideal humidity</span>
+                <div class="smoke-legend__low"></div>
+                <span class="smoke-legend__text">Low</span>
               </div>
               <div class="d-flex align-items-center">
-                <div class="humidity-legend__fair"></div>
-                <span class="humidity-legend__text">Fair humidity</span>
+                <div class="smoke-legend__mid"></div>
+                <span class="smoke-legend__text">Mid</span>
               </div>
               <div class="d-flex align-items-center">
-                <div class="humidity-legend__poor"></div>
-                <span class="humidity-legend__text">Poor humidity</span>
+                <div class="smoke-legend__high"></div>
+                <span class="smoke-legend__text">High</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="smoke-legend__dangerous"></div>
+                <span class="smoke-legend__text">Dangerous</span>
               </div>
             </div>
           </div>
