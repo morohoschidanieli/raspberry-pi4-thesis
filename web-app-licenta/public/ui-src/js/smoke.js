@@ -35,7 +35,7 @@ const smokeModule={
     drawProgressBar: function(sensorSmoke){
         smokeModule.config.$smokeLoading.hide();
         //             smokeModule.drawProgressBar(data.Smoke);
-        let smoke =sensorSmoke.toFixed(2);
+        let smoke =Number(sensorSmoke).toFixed(2);
 
         if(smoke <= 50){
             let gradientColor = Math.abs(0.5 * smoke);
@@ -62,14 +62,14 @@ const smokeModule={
 
     connect: function(){
         // when connection is established
-        temperatureModule.config.connection.on( 'connect', () => {
-            temperatureModule.config.isConnectionActive = true;
+        smokeModule.config.connection.on( 'connect', () => {
+            smokeModule.config.isConnectionActive = true;
         } );
     },
 
     disconnect: function(){
-        temperatureModule.config.connection.on( 'disconnect', () => {
-            temperatureModule.config.isConnectionActive = false;
+        smokeModule.config.connection.on( 'disconnect', () => {
+            smokeModule.config.isConnectionActive = false;
         } );
     }
 }

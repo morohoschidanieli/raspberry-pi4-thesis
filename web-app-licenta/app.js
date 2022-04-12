@@ -47,6 +47,7 @@ const io = socket(server);
 
 // APIs
 require('./api-routes/home.js')(app);
+require('./api-routes/analytics.js')(app);
 require('./api-routes/motion-sensor.js')(app, io);
 require('./api-routes/rgb.js')(app, io);
 require('./api-routes/sht21.js')(app, io);

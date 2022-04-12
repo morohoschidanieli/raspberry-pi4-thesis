@@ -1,0 +1,25 @@
+.smoke-container{
+  width: 100%;
+}
+
+.progress-bar-CO2{
+  position: absolute;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: $application-background-color !important;
+  height: 115px;
+  width: 115px;
+  border-radius: 50%;
+  font-size: 20px;
+  color:white;
+
+  &__background{
+    position: relative;
+    height: 135px;
+    width: 135px;
+    background: conic-gradient($cold-gray 25%, $slightly-warm-gray 0 50%, $warm-gray 0 75%, $hot-gray 0 100%);
+    border-radius: 50%;
+  }
+}

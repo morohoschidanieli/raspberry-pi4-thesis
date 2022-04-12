@@ -14,6 +14,9 @@ const getDatbase = getDatabase();
 const pathDatabase = getDatbase.ref('/');
 const moistureDatabase = getDatbase.ref('/sensors/moisture');
 const smokeDatabase = getDatbase.ref('/sensors/smoke');
-const temperatureAndHumidityDatabase = getDatbase.ref('/sensors/temeprature-and-humidity');
+const temperatureAndHumidityDatabase = getDatbase.ref('/sensors/temperature-and-humidity');
+temperatureAndHumidityDatabase.once('value', function (snap){
+    console.log(snap.toJSON());
+})
 
 module.exports = { admin, db, pathDatabase, moistureDatabase, smokeDatabase, temperatureAndHumidityDatabase };
