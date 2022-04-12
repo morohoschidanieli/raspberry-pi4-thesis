@@ -25,9 +25,9 @@ const co2Module={
 
     getSmoke: function(){
         co2Module.config.connection.on( 'mq135Event', (data) => {
-            if(data.CO !== ' '){
+            if(data.C0 !== ' '){
                 co2Module.config.$smokeLoading.hide();
-                co2Module.drawProgressBar(data.CO);
+                co2Module.drawProgressBar(data.C0);
             }
         } );
     },
