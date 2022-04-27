@@ -1,0 +1,12 @@
+.motion-detection{
+  &__background{
+    position: relative;
+    height: 135px;
+    width: 135px;
+    background-color: $application-background-color;
+    border-radius: 50%;
+    border: 2px solid $humidity-border-color;
+    font-size: 16px;
+    color: $font-color;
+  }
+}

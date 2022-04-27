@@ -165,9 +165,9 @@ const co2Module={
 
     getSmoke: function(){
         co2Module.config.connection.on( 'mq135Event', (data) => {
-            if(data.CO !== ' '){
+            if(data.C0 !== ' '){
                 co2Module.config.$smokeLoading.hide();
-                co2Module.drawProgressBar(data.CO);
+                co2Module.drawProgressBar(data.C0);
             }
         } );
     },
@@ -388,6 +388,121 @@ var blueValue = document.getElementById('blue-input').value;
 // rightButton.addEventListener( 'click' , emitRightEvent);
 // upButton.addEventListener( 'click' , emitUpEvent);
 // downButton.addEventListener( 'click' , emitDownEvent);
+
+const motionDetectionModule={
+    init: function (){
+        motionDetectionModule.config = {
+            $loadingMotion: $(".js-loading-motion"),
+            $motionDetectionBackground: $(".js-motion-background"),
+
+            //colors
+            //Temperature colors
+            $activated: 'red',
+            $deactivated: 'green',
+
+            isConnectionActive: false,
+            connection: io('192.168.0.116:9000'),
+        }
+    },
+
+    getStateOfMotionSensor: function(){
+        motionDetectionModule.config.connection.on( 'motionSensorEvent', (data) => {
+            if(data.isActivated !== ''){
+                motionDetectionModule.changeMotionState(data.isActivated);
+            }
+        } );
+    },
+
+    changeMotionState: function(isMotionSensorOn){
+        // motionDetectionModule.config.$loadingMotion.addClass("d-none");
+        motionDetectionModule.config.$loadingMotion.css({'height':'70px'});
+        const isObjectDetected = isMotionSensorOn === 'false';
+
+        if(isObjectDetected){
+            motionDetectionModule.config.$loadingMotion.attr('src','/assets/img/motion-sensor/motion-sensor.svg')
+            motionDetectionModule.config.$motionDetectionBackground.css({"border-color": motionDetectionModule.config.$activated});
+        }else{
+            motionDetectionModule.config.$loadingMotion.attr('src','/assets/img/motion-sensor/motion-sensor-off.svg')
+            motionDetectionModule.config.$motionDetectionBackground.css({"border-color": motionDetectionModule.config.$deactivated});
+        }
+    },
+
+    connect: function(){
+        // when connection is established
+        smokeAlarmModule.config.connection.on( 'connect', () => {
+            smokeAlarmModule.config.isConnectionActive = true;
+        } );
+    },
+
+    disconnect: function(){
+        smokeAlarmModule.config.connection.on( 'disconnect', () => {
+            smokeAlarmModule.config.isConnectionActive = false;
+        } );
+    }
+}
+
+$(document).ready(function() {
+    motionDetectionModule.init();
+    // co2Module.connect();
+    // co2Module.disconnect();
+    motionDetectionModule.getStateOfMotionSensor();
+});
+
+const smokeAlarmModule={
+    init: function (){
+        smokeAlarmModule.config = {
+            $smokeContainer: $(".js-smoke-alarm"),
+            $alarmBackground: $(".js-alarm-background"),
+
+            //colors
+            //Temperature colors
+            $activated: 'red',
+            $deactivated: 'green',
+
+            isConnectionActive: false,
+            connection: io('192.168.0.116:9000'),
+        }
+    },
+
+    getStateOfSmokeAlarm: function(){
+        smokeAlarmModule.config.connection.on( 'mq135Event', (data) => {
+            if(data.isAlarmOn !== ''){
+                smokeAlarmModule.config.$smokeContainer.addClass("d-none");
+                smokeAlarmModule.changeAlarmState(data.isAlarmOn);
+            }
+        } );
+    },
+
+    changeAlarmState: function(sensorSmokeAlarm){
+        const isAlarmStarted = sensorSmokeAlarm === 'true';
+
+        if(isAlarmStarted){
+            smokeAlarmModule.config.$alarmBackground.css({"background-color": smokeAlarmModule.config.$activated});
+        }else{
+            smokeAlarmModule.config.$alarmBackground.css({"background-color": smokeAlarmModule.config.$deactivated});
+        }
+    },
+
+    connect: function(){
+        // when connection is established
+        smokeAlarmModule.config.connection.on( 'connect', () => {
+            smokeAlarmModule.config.isConnectionActive = true;
+        } );
+    },
+
+    disconnect: function(){
+        smokeAlarmModule.config.connection.on( 'disconnect', () => {
+            smokeAlarmModule.config.isConnectionActive = false;
+        } );
+    }
+}
+
+$(document).ready(function() {
+    smokeAlarmModule.init();
+    // co2Module.connect();
+    // co2Module.disconnect();
+    smokeAlarmModule.getStateOfSmokeAlarm();
+});
 
 const smokeModule={
     init: function (){

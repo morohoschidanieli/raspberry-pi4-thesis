@@ -1,0 +1,37 @@
+.alarm-legend{
+  display: flex;
+  color: white;
+  font-weight: 300;
+
+  &__text{
+    margin-left: 14px;
+  }
+
+  //colors
+  &__activated{
+    background-color: $activated;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  &__deactivated{
+    background-color: $deactivated ;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+}
+
+.alarm{
+  &__background{
+    position: relative;
+    height: 135px;
+    width: 135px;
+    background-color: $application-background-color;
+    border-radius: 50%;
+    border: 2px solid $humidity-border-color;
+    font-size: 16px;
+    color: $font-color;
+  }
+}

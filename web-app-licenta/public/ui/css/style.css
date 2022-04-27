@@ -398,4 +398,41 @@ body {
     background: conic-gradient(#ababab 25%, #828282 0 50%, #737373 0 75%, #666666 0 100%);
     border-radius: 50%; }
 
+.alarm-legend {
+  display: flex;
+  color: white;
+  font-weight: 300; }
+  .alarm-legend__text {
+    margin-left: 14px; }
+  .alarm-legend__activated {
+    background-color: red;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+  .alarm-legend__deactivated {
+    background-color: green;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; }
+
+.alarm__background {
+  position: relative;
+  height: 135px;
+  width: 135px;
+  background-color: #2D384F;
+  border-radius: 50%;
+  border: 2px solid #2171b4;
+  font-size: 16px;
+  color: white; }
+
+.motion-detection__background {
+  position: relative;
+  height: 135px;
+  width: 135px;
+  background-color: #2D384F;
+  border-radius: 50%;
+  border: 2px solid #2171b4;
+  font-size: 16px;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
