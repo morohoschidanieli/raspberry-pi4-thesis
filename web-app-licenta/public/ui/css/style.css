@@ -435,4 +435,10 @@ body {
   font-size: 16px;
   color: white; }
 
+.color-picker {
+  width: 300px !important;
+  height: 30px;
+  background-color: red;
+  border-radius: 20px; }
+
 /*# sourceMappingURL=style.css.map */

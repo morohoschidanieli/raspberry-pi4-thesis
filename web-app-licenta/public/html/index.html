@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LED IoT Example</title>
+  <title>Overview</title>
+  <link rel = "icon" href ="/assets/img/logo.svg" type = "image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Link to custom style -->
@@ -21,6 +22,12 @@
 
   <!--    Font awesome link-->
   <script src="https://kit.fontawesome.com/abcc6b2fc6.js" crossorigin="anonymous"></script>
+
+  <!--  Link to color picker-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6/css/reinvented-color-wheel.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6"></script>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 </head>
 <body>
@@ -79,112 +86,111 @@
         </div>
       </div>
       <div class="d-flex flex-column col-12 col-sm-12 col-md-12 col-xl-4 p-3 mt-3 mt-xl-0 overview__camera-stream__container position-relative">
-          <p class="overview__camera-stream__title p-2 p-sm-2 p-md-3 p-xl-0">Outside temperature</p>
-          <div class="weather__container h-100">
-            <div class="row mx-0 w-100 h-100">
-              <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                <img class="js-current-day-weather-icon" style="height: 100px; width: 100px" alt="wheater-icon" />
-                <div class="weather__temperature-value js-current-temp-value">
+        <p class="overview__camera-stream__title p-2 p-sm-2 p-md-3 p-xl-0">Outside temperature</p>
+        <div class="weather__container h-100">
+          <div class="row mx-0 w-100 h-100">
+            <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+              <img class="js-current-day-weather-icon" style="height: 100px; width: 100px" alt="wheater-icon" />
+              <div class="weather__temperature-value js-current-temp-value">
 
-                </div>
-                <div class="weather__humidity-value js-current-humidity-value">
-
-                </div>
               </div>
-              <div class="col-8 d-flex flex-column justify-content-center align-items-end">
-                <div class="row">
-                  <div class="weather__street">
-                    Strada Observatorului
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="weather__county">
-                    Cluj
-                  </div
-                </div>
+              <div class="weather__humidity-value js-current-humidity-value">
+
               </div>
             </div>
-            <hr style="color:white" class="my-3">
-            <div class="d-flex justify-content-between js-weather-container w-100">
+            <div class="col-8 d-flex flex-column justify-content-center align-items-end">
+              <div class="row">
+                <div class="weather__street">
+                  Strada Observatorului
+                </div>
+              </div>
+              <div class="row">
+                <div class="weather__county">
+                  Cluj
+                </div
+              </div>
             </div>
           </div>
+          <hr style="color:white" class="my-3">
+          <div class="d-flex justify-content-between js-weather-container w-100">
+          </div>
+        </div>
       </div>
-
 
     </div>
     <div class="row py-3 mx-sm-0 mx-0 my-3 homepage__section sensors-container justify-content-center align-items-center">
       <p class="overview__camera-stream__title">Sensors data</p>
 
-<!--      Inside Temperature-->
+      <!--      Inside Temperature-->
       <div class="col-md-6 col-lg-5 col-xl-4 py-3">
         <div class="row w-100 mx-sm-0 px-3 mx-0">
           <div class="overview__camera-stream__title row w-100 justify-content-center align-items-center py-3">Inside temperature</div>
           <div class="da d-flex flex-row justify-content-center align-items-center h-100">
-          <div class="col-6 col-sm-4 col-md-6 temperature-container d-flex flex-row justify-content-center align-items-start">
-            <div class="progress-bar__background">
-              <div class="progress-bar align-items-center js-temperature-progress-bar">
-                <img class="js-loading-temperature" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
+            <div class="col-6 col-sm-4 col-md-6 temperature-container d-flex flex-row justify-content-center align-items-start">
+              <div class="progress-bar__background">
+                <div class="progress-bar align-items-center js-temperature-progress-bar">
+                  <img class="js-loading-temperature" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-6 col-sm-4 col-md-6 temperature-legend d-flex flex-column justify-content-center">
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__cold"></div>
-              <span class="temperature-legend__text">Cold</span>
+            <div class="col-6 col-sm-4 col-md-6 temperature-legend d-flex flex-column justify-content-center">
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__cold"></div>
+                <span class="temperature-legend__text">Cold</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__cool"></div>
+                <span class="temperature-legend__text">Cool</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__slightly-cool"></div>
+                <span class="temperature-legend__text">Slightly cool</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__neutral"></div>
+                <span class="temperature-legend__text">Neutral</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__slightly-warm"></div>
+                <span class="temperature-legend__text">Slightly warm</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__warm"></div>
+                <span class="temperature-legend__text">Warm</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="temperature-legend__hot"></div>
+                <span class="temperature-legend__text">Hot</span>
+              </div>
             </div>
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__cool"></div>
-              <span class="temperature-legend__text">Cool</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__slightly-cool"></div>
-              <span class="temperature-legend__text">Slightly cool</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__neutral"></div>
-              <span class="temperature-legend__text">Neutral</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__slightly-warm"></div>
-              <span class="temperature-legend__text">Slightly warm</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__warm"></div>
-              <span class="temperature-legend__text">Warm</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="temperature-legend__hot"></div>
-              <span class="temperature-legend__text">Hot</span>
-            </div>
-          </div>
           </div>
         </div>
       </div>
 
-<!--      Inside humidity-->
+      <!--      Inside humidity-->
       <div class="col-md-6 col-lg-5 col-xl-4 py-3">
         <div class="row w-100 mx-sm-0 px-3 mx-0">
           <div class="overview__camera-stream__title row w-100 justify-content-center align-items-center py-3">Humidity</div>
           <div class="da d-flex flex-row justify-content-center align-items-center h-100">
-          <div class="col-6 col-sm-4 col-md-6 humidity-container d-flex flex-row justify-content-center align-items-start">
-            <div class="humidity__background js-humidity-value d-flex justify-content-center align-items-center">
-              <img class="js-loading-humidity" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
+            <div class="col-6 col-sm-4 col-md-6 humidity-container d-flex flex-row justify-content-center align-items-start">
+              <div class="humidity__background js-humidity-value d-flex justify-content-center align-items-center">
+                <img class="js-loading-humidity" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
+              </div>
             </div>
-          </div>
-          <div class="col-6 col-sm-4 col-md-6 humidity-legend d-flex flex-column justify-content-center">
-            <div class="d-flex align-items-center">
-              <div class="humidity-legend__ideal"></div>
-              <span class="humidity-legend__text">Ideal</span>
+            <div class="col-6 col-sm-4 col-md-6 humidity-legend d-flex flex-column justify-content-center">
+              <div class="d-flex align-items-center">
+                <div class="humidity-legend__ideal"></div>
+                <span class="humidity-legend__text">Ideal</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="humidity-legend__fair"></div>
+                <span class="humidity-legend__text">Fair</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="humidity-legend__poor"></div>
+                <span class="humidity-legend__text">Poor</span>
+              </div>
             </div>
-            <div class="d-flex align-items-center">
-              <div class="humidity-legend__fair"></div>
-              <span class="humidity-legend__text">Fair</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div class="humidity-legend__poor"></div>
-              <span class="humidity-legend__text">Poor</span>
-            </div>
-          </div>
           </div>
         </div>
       </div>
@@ -292,7 +298,7 @@
               <div class="motion-detection__background js-motion-background">
                 <div class="progress-bar-CO2 d-flex justify-content-center align-items-center js-motion-detection text-center">
                   <img class="js-loading-motion" style="height: 30px" src="/assets/img/loading-gif.gif" alt="loading"/>
-<!--                  <img class="js-loading-CO" style="height: 70px" src="/assets/img/motion-sensor/motion-sensor-off.svg" alt="loading"/>-->
+                  <!--                  <img class="js-loading-CO" style="height: 70px" src="/assets/img/motion-sensor/motion-sensor-off.svg" alt="loading"/>-->
                 </div>
               </div>
             </div>
@@ -311,54 +317,55 @@
       </div>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p id="motionData">ert</p>
-    <p id="temperatureData">ert</p>
-    <p id="humidityData">ert</p>
-    <p id="COData">ert</p>
-    <p id="CO2Data">ert</p>
-    <p id="alarmData">ert</p>
-    <p class="title">RGB LED IoT Appliation</p>
-    <!-- <div class="buttons-container">
-      <div class="buttons-container__button buttons-container__button--red" id="button-red">Red</div>
-      <div class="buttons-container__button buttons-container__button--green" id="button-green">Green</div>
-      <div class="buttons-container__button buttons-container__button--blue" id="button-blue">Blue</div>
-    </div> -->
-    <!--    <img src="stream.mjpg" style="position: fixed; top: 434px; left: 0px; right: 0px; height: 300px; width: 300px; object-fit: contain; transform: rotate(180deg);">-->
+    <div class="row py-3 mx-sm-0 mx-0 my-3 homepage__section lamp-container justify-content-center align-items-center">
+      <p class="overview__camera-stream__title">Light Control</p>
 
-    <form method="post" action="/rgb-data">
-      <label for="favcolor">Select color</label>
-      <input type="color" id="favcolor" name="favcolor"><br>
-      <input type="submit">
-    </form>
-
-    <!-- <form method="post" action="/rgb-data" class="rgb-container">
-      <label for="red">RED: </label>
-      <input id="red" name="red" />
-      <br>
-      <br>
-      <br>
-      <label for="green">GREEN: </label>
-      <input id="green" name="green"/>
-      <br>
-      <br>
-      <br>
-      <label for="blue">BLUE: </label>
-      <input id="blue" name="blue"/>
-    <br>
-    <br>
-    <br>
-      <button type="submit" id="change-rgb">Change RGB</button>
-      </form> -->
-
+      <div class="p-3 text-center" id="example"></div>
+      <div class="color-picker" id="color-picker-example"></div>
+    </div>
   </div>
 
 </div>
+<script>
+  const HSLToRGB = (h, s, l) => {
+    s /= 100;
+    l /= 100;
+    const k = n => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = n =>
+            l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
 
+    return ({
+      red:255 * f(0),
+      green:255 * f(8),
+      blue:255 * f(4)
+    });
+  };
+
+  new ReinventedColorWheel({
+    appendTo: document.getElementById('example'),
+    onChange: function (color) {
+      const rgbValue = HSLToRGB(color.hsl[0], color.hsl[1], color.hsl[2]);
+
+      $("#color-picker-example").css({'background-color': `rgb(${rgbValue.red},${rgbValue.green},${rgbValue.blue})`});
+      $.ajax({
+        type: "POST",
+        url: "/rgb-data",
+        data: rgbValue,
+        success: function (result) {
+          console.log(result);
+        },
+        dataType: "json"
+      });
+    },
+    hsv: [0, 100, 100],
+    hsl: [0, 100, 50],
+    wheelDiameter: 300,
+    wheelThickness: 20,
+    handleDiameter: 16,
+    wheelReflectsSaturation: true
+  })
+</script>
 <!-- Link to custom javascript -->
 <script src="/assets/ui/js/main.js"></script>
 </body>
