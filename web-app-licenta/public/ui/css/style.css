@@ -441,4 +441,17 @@ body {
   background-color: red;
   border-radius: 20px; }
 
+.overlay {
+  background: linear-gradient(0deg, rgba(24, 18, 57, 0.731530112) 100%, rgba(69, 69, 69, 0.8771883754) 100%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 122; }
+
+.chart-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 /*# sourceMappingURL=style.css.map */

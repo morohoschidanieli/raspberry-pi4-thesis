@@ -30,7 +30,7 @@ module.exports = function(app, io){
       
         const previousData = pathDatabase.child(`sensors/smoke/${currentDate}/${currentTime}`);
       
-        if(minutes == '30' || minutes == '00'){
+        if(minutes == '00'){
           previousData.set({
             CO: mq135Data.C0,
             CO2 : mq135Data.Smoke

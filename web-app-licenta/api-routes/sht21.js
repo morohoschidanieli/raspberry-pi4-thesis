@@ -29,7 +29,7 @@ module.exports = function(app, io){
       
         const previousData = pathDatabase.child(`sensors/temperature-and-humidity/${currentDate}/${currentTime}`);
       
-        if(minutes == '30' || minutes == '00'){
+        if(minutes == '00'){
           previousData.set({
             temperature: sht21Data.temperature,
             humidity : sht21Data.humidity
