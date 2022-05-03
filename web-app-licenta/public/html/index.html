@@ -327,6 +327,12 @@
 
 </div>
 <script>
+  let rgbColor = {
+    red: 255,
+    green: 0,
+    blue: 0
+  }
+
   const HSLToRGB = (h, s, l) => {
     s /= 100;
     l /= 100;
@@ -346,17 +352,9 @@
     appendTo: document.getElementById('example'),
     onChange: function (color) {
       const rgbValue = HSLToRGB(color.hsl[0], color.hsl[1], color.hsl[2]);
+      rgbColor = {...rgbColor, ...rgbValue};
 
       $("#color-picker-example").css({'background-color': `rgb(${rgbValue.red},${rgbValue.green},${rgbValue.blue})`});
-      $.ajax({
-        type: "POST",
-        url: "/rgb-data",
-        data: rgbValue,
-        success: function (result) {
-          console.log(result);
-        },
-        dataType: "json"
-      });
     },
     hsv: [0, 100, 100],
     hsl: [0, 100, 50],
@@ -364,6 +362,20 @@
     wheelThickness: 20,
     handleDiameter: 16,
     wheelReflectsSaturation: true
+  });
+
+  $(".reinvented-color-wheel").mouseup(function(){
+    console.log("on mouse up event");
+
+    $.ajax({
+      type: "POST",
+      url: "/rgb-data",
+      data: rgbColor,
+      success: function (result) {
+        console.log(result);
+      },
+      dataType: "json"
+    });
   })
 </script>
 <!-- Link to custom javascript -->
