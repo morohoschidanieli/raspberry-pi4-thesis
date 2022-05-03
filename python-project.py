@@ -168,7 +168,7 @@ def readGas():
                  "Smoke" : perc["SMOKE"],
                  "isAlarmOn" : 'false'}
         response = requests.post(url, mq135Data)
-        if perc["SMOKE"] > 1.2:
+        if perc["SMOKE"] > 0.25:
             GPIO.output(buzzerPin, GPIO.HIGH)
             time.sleep(2)
             GPIO.output(buzzerPin, GPIO.LOW)

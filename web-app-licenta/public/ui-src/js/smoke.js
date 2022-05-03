@@ -34,7 +34,7 @@ const smokeModule={
 
     drawProgressBar: function(sensorSmoke){
         smokeModule.config.$smokeLoading.hide();
-        let smoke =Number(sensorSmoke).toFixed(2);
+        let smoke =Number(sensorSmoke * 100).toFixed(4);
 
         if(smoke <= 50){
             let gradientColor = Math.abs(0.5 * smoke);
