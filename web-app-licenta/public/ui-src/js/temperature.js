@@ -90,7 +90,6 @@ const temperatureModule={
     },
 
     connect: function(){
-        // when connection is established
         temperatureModule.config.connection.on( 'connect', () => {
             temperatureModule.config.isConnectionActive = true;
         } );

@@ -34,7 +34,6 @@ const smokeModule={
 
     drawProgressBar: function(sensorSmoke){
         smokeModule.config.$smokeLoading.hide();
-        //             smokeModule.drawProgressBar(data.Smoke);
         let smoke =Number(sensorSmoke).toFixed(2);
 
         if(smoke <= 50){
@@ -61,7 +60,6 @@ const smokeModule={
     },
 
     connect: function(){
-        // when connection is established
         smokeModule.config.connection.on( 'connect', () => {
             smokeModule.config.isConnectionActive = true;
         } );
@@ -79,5 +77,4 @@ $(document).ready(function() {
     smokeModule.connect();
     smokeModule.disconnect();
     smokeModule.getSmoke();
-    //smokeModule.drawProgressBar(0.123);
 });

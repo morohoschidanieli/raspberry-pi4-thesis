@@ -16,7 +16,6 @@ const humidityModule = {
     },
 
     connect: function(){
-        // when connection is established
         humidityModule.config.connection.on( 'connect', () => {
             humidityModule.config.isConnectionActive = true;
         } );
@@ -35,8 +34,6 @@ const humidityModule = {
                 humidityModule.drawHumidity(data.humidity);
             }
         } );
-        // let number = 32.12312;
-        // humidityModule.drawHumidity(number);
     },
 
     drawHumidity: function(sensorHumidity){

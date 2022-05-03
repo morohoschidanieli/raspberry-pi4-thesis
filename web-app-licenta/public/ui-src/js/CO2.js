@@ -61,7 +61,6 @@ const co2Module={
     },
 
     connect: function(){
-        // when connection is established
         co2Module.config.connection.on( 'connect', () => {
             co2Module.config.isConnectionActive = true;
         } );
@@ -76,7 +75,7 @@ const co2Module={
 
 $(document).ready(function() {
     co2Module.init();
-    // co2Module.connect();
-    // co2Module.disconnect();
+    co2Module.connect();
+    co2Module.disconnect();
     co2Module.getSmoke();
 });

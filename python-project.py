@@ -26,20 +26,13 @@ db = firebase.database()
 
 rgbData = db.child('sensors/rgb-data').get()
 
-redValue = int(rgbData.val()['red']) * 0.39215686
-greenValue = int(rgbData.val()['green']) * 0.39215686
-blueValue = int(rgbData.val()['blue']) * 0.39215686
-print(int(rgbData.val()['red']))
+redValue = int(float(rgbData.val()['red'])) * 0.39215686
+greenValue = int(float(rgbData.val()['green'])) * 0.39215686
+blueValue = int(float(rgbData.val()['blue'])) * 0.39215686
 
 rPin = 26
 gPin = 19
 bPin = 13
-
-print("Introduce valorile pentru RGB")
-
-# redValue = int(input("Red: ")) * 0.39215686
-# greenValue = int(input("Green: ")) * 0.39215686
-# blueValue = int(input("Blue: ")) * 0.39215686
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -120,7 +113,6 @@ class SHT21:
                     crc = (crc << 1)
         return True if (crc == data[length]) else False
 
-
 # Threads
 
 # --------Read/Show Temperature and Humidity
@@ -194,16 +186,11 @@ def changeRGBColor():
     url = "http://localhost:9000/rgb-data"
     getUrl = "https://licenta-3e164-default-rtdb.firebaseio.com/sensors/rgb-data"
     getData = ""
-    # changeColor(redValue, blueValue, greenValue)
-    # rgbData = {"red" : int(redValue/0.39215686),
-    #         "green" : int(greenValue/0.39215686),
-    #         "blue" : int(blueValue/0.39215686)}
-    # response = requests.post(url, rgbData)
     while True:
         rgbData = db.child('sensors/rgb-data').get()
-        redValue = int(rgbData.val()['red']) * 0.39215686
-        greenValue = int(rgbData.val()['green']) * 0.39215686
-        blueValue = int(rgbData.val()['blue']) * 0.39215686
+        redValue = int(float(rgbData.val()['red']) * 0.39215686
+        greenValue = int(float(rgbData.val()['green'])) * 0.39215686
+        blueValue = int(float(rgbData.val()['blue'])) * 0.39215686
         changeColor(redValue, blueValue, greenValue)
         print(redValue)
         time.sleep(2)

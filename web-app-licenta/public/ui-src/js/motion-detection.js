@@ -4,7 +4,6 @@ const motionDetectionModule={
             $loadingMotion: $(".js-loading-motion"),
             $motionDetectionBackground: $(".js-motion-background"),
 
-            //colors
             //Temperature colors
             $activated: 'red',
             $deactivated: 'green',
@@ -27,7 +26,7 @@ const motionDetectionModule={
         motionDetectionModule.config.$loadingMotion.css({'height':'70px'});
         const isObjectDetected = isMotionSensorOn === 'false';
 
-        if(isObjectDetected){
+        if(!isObjectDetected){
             motionDetectionModule.config.$loadingMotion.attr('src','/assets/img/motion-sensor/motion-sensor.svg')
             motionDetectionModule.config.$motionDetectionBackground.css({"border-color": motionDetectionModule.config.$activated});
         }else{
@@ -37,7 +36,6 @@ const motionDetectionModule={
     },
 
     connect: function(){
-        // when connection is established
         smokeAlarmModule.config.connection.on( 'connect', () => {
             smokeAlarmModule.config.isConnectionActive = true;
         } );
@@ -52,7 +50,7 @@ const motionDetectionModule={
 
 $(document).ready(function() {
     motionDetectionModule.init();
-    // co2Module.connect();
-    // co2Module.disconnect();
+    co2Module.connect();
+    co2Module.disconnect();
     motionDetectionModule.getStateOfMotionSensor();
 });

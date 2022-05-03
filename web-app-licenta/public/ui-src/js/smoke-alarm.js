@@ -34,7 +34,6 @@ const smokeAlarmModule={
     },
 
     connect: function(){
-        // when connection is established
         smokeAlarmModule.config.connection.on( 'connect', () => {
             smokeAlarmModule.config.isConnectionActive = true;
         } );
@@ -49,7 +48,7 @@ const smokeAlarmModule={
 
 $(document).ready(function() {
     smokeAlarmModule.init();
-    // co2Module.connect();
-    // co2Module.disconnect();
+    co2Module.connect();
+    co2Module.disconnect();
     smokeAlarmModule.getStateOfSmokeAlarm();
 });

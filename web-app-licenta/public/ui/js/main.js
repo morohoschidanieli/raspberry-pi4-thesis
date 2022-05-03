@@ -1,3 +1,4 @@
+import {getConnectionIp} from "../../config/config";
 const cameraModule = {
     init: function () {
         cameraModule.config = {
@@ -23,7 +24,7 @@ const cameraModule = {
             $streamSource: $("#stream-src"),
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io(getConnectionIp()),
         }
         cameraModule.emitLeftEvent();
         cameraModule.emitRightEvent();
@@ -133,10 +134,13 @@ const cameraModule = {
 
 };
 
-cameraModule.init();
-cameraModule.refresh();
-cameraModule.toggleCapture();
-cameraModule.toggleVideoStream();
+$(document).ready(function() {
+    cameraModule.init();
+    cameraModule.refresh();
+    cameraModule.toggleCapture();
+    cameraModule.toggleVideoStream();
+})
+
 
 const co2Module={
     init: function (){
@@ -201,7 +205,6 @@ const co2Module={
     },
 
     connect: function(){
-        // when connection is established
         co2Module.config.connection.on( 'connect', () => {
             co2Module.config.isConnectionActive = true;
         } );
@@ -216,13 +219,10 @@ const co2Module={
 
 $(document).ready(function() {
     co2Module.init();
-    // co2Module.connect();
-    // co2Module.disconnect();
+    co2Module.connect();
+    co2Module.disconnect();
     co2Module.getSmoke();
 });
-
-const connectionIp='192.168.0.116:9000';
-
 
 const humidityModule = {
     init: function(){
@@ -242,7 +242,6 @@ const humidityModule = {
     },
 
     connect: function(){
-        // when connection is established
         humidityModule.config.connection.on( 'connect', () => {
             humidityModule.config.isConnectionActive = true;
         } );
@@ -261,8 +260,6 @@ const humidityModule = {
                 humidityModule.drawHumidity(data.humidity);
             }
         } );
-        // let number = 32.12312;
-        // humidityModule.drawHumidity(number);
     },
 
     drawHumidity: function(sensorHumidity){
@@ -395,7 +392,6 @@ const motionDetectionModule={
             $loadingMotion: $(".js-loading-motion"),
             $motionDetectionBackground: $(".js-motion-background"),
 
-            //colors
             //Temperature colors
             $activated: 'red',
             $deactivated: 'green',
@@ -418,7 +414,7 @@ const motionDetectionModule={
         motionDetectionModule.config.$loadingMotion.css({'height':'70px'});
         const isObjectDetected = isMotionSensorOn === 'false';
 
-        if(isObjectDetected){
+        if(!isObjectDetected){
             motionDetectionModule.config.$loadingMotion.attr('src','/assets/img/motion-sensor/motion-sensor.svg')
             motionDetectionModule.config.$motionDetectionBackground.css({"border-color": motionDetectionModule.config.$activated});
         }else{
@@ -428,7 +424,6 @@ const motionDetectionModule={
     },
 
     connect: function(){
-        // when connection is established
         smokeAlarmModule.config.connection.on( 'connect', () => {
             smokeAlarmModule.config.isConnectionActive = true;
         } );
@@ -443,8 +438,8 @@ const motionDetectionModule={
 
 $(document).ready(function() {
     motionDetectionModule.init();
-    // co2Module.connect();
-    // co2Module.disconnect();
+    co2Module.connect();
+    co2Module.disconnect();
     motionDetectionModule.getStateOfMotionSensor();
 });
 
@@ -484,7 +479,6 @@ const smokeAlarmModule={
     },
 
     connect: function(){
-        // when connection is established
         smokeAlarmModule.config.connection.on( 'connect', () => {
             smokeAlarmModule.config.isConnectionActive = true;
         } );
@@ -499,8 +493,8 @@ const smokeAlarmModule={
 
 $(document).ready(function() {
     smokeAlarmModule.init();
-    // co2Module.connect();
-    // co2Module.disconnect();
+    co2Module.connect();
+    co2Module.disconnect();
     smokeAlarmModule.getStateOfSmokeAlarm();
 });
 
@@ -540,7 +534,6 @@ const smokeModule={
 
     drawProgressBar: function(sensorSmoke){
         smokeModule.config.$smokeLoading.hide();
-        //             smokeModule.drawProgressBar(data.Smoke);
         let smoke =Number(sensorSmoke).toFixed(2);
 
         if(smoke <= 50){
@@ -567,7 +560,6 @@ const smokeModule={
     },
 
     connect: function(){
-        // when connection is established
         smokeModule.config.connection.on( 'connect', () => {
             smokeModule.config.isConnectionActive = true;
         } );
@@ -585,7 +577,6 @@ $(document).ready(function() {
     smokeModule.connect();
     smokeModule.disconnect();
     smokeModule.getSmoke();
-    //smokeModule.drawProgressBar(0.123);
 });
 
 const temperatureModule={
@@ -680,7 +671,6 @@ const temperatureModule={
     },
 
     connect: function(){
-        // when connection is established
         temperatureModule.config.connection.on( 'connect', () => {
             temperatureModule.config.isConnectionActive = true;
         } );

@@ -1,3 +1,4 @@
+import {getConnectionIp} from "../../config/config";
 const cameraModule = {
     init: function () {
         cameraModule.config = {
@@ -23,7 +24,7 @@ const cameraModule = {
             $streamSource: $("#stream-src"),
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io(getConnectionIp()),
         }
         cameraModule.emitLeftEvent();
         cameraModule.emitRightEvent();
@@ -133,7 +134,9 @@ const cameraModule = {
 
 };
 
-cameraModule.init();
-cameraModule.refresh();
-cameraModule.toggleCapture();
-cameraModule.toggleVideoStream();
+$(document).ready(function() {
+    cameraModule.init();
+    cameraModule.refresh();
+    cameraModule.toggleCapture();
+    cameraModule.toggleVideoStream();
+})
