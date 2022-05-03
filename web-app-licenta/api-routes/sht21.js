@@ -25,7 +25,7 @@ module.exports = function(app, io){
         }
         
         const currentTime = hours + ':' + minutes;
-        const currentDate = date + '-' + month + '-' + year;
+        const currentDate = month + '-' + date + '-' + year;
       
         const previousData = pathDatabase.child(`sensors/temperature-and-humidity/${currentDate}/${currentTime}`);
       

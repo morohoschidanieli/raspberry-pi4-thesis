@@ -100,14 +100,15 @@
     let humidityArray =  [['Hour', '%']];
     let CO2Array =  [['Hour', `ppm`]];
     let COArray =  [['Hour', 'ppm']];
-    let dateValue ='';
+    let dateValueSht21 ='';
+    let dateValueMq135 ='';
 
     var userDataRefTemperatureSensor = firebase.database()
         .ref("sensors/temperature-and-humidity")
         .limitToLast(1)
         .on('child_added', function(snapshot) {
             let index=-1;
-            dateValue=snapshot.key;
+            dateValueSht21=snapshot.key;
             snapshot.forEach((child) => {
                 index+=1;
                 temperatureArray.push([Object.keys(snapshot.val())[index], +child.val().temperature]);
@@ -124,7 +125,7 @@
         .limitToLast(1)
         .on('child_added', function(snapshot) {
             let index=-1;
-            dateValue=snapshot.key;
+            dateValueMq135=snapshot.key;
             snapshot.forEach((child) => {
                 index+=1;
                 CO2Array.push([Object.keys(snapshot.val())[index], +child.val().CO2]);
@@ -140,7 +141,7 @@
         var data = google.visualization.arrayToDataTable(temperatureArray);
 
         var options = {
-            title: `Temperature(${dateValue})`,
+            title: `Temperature(${dateValueSht21})`,
             titleTextStyle: {
                 color: 'white'
             },
@@ -176,7 +177,7 @@
         var data = google.visualization.arrayToDataTable(humidityArray);
 
         var options = {
-            title: `Humidity(${dateValue})`,
+            title: `Humidity(${dateValueSht21})`,
             titleTextStyle: {
                 color: 'white'
             },
@@ -212,7 +213,7 @@
         var data = google.visualization.arrayToDataTable(COArray);
 
         var options = {
-            title: `CO(${dateValue})`,
+            title: `CO(${dateValueMq135})`,
             titleTextStyle: {
                 color: 'white'
             },
@@ -248,7 +249,7 @@
         var data = google.visualization.arrayToDataTable(CO2Array);
 
         var options = {
-            title: `CO2(${dateValue})`,
+            title: `CO2(${dateValueMq135})`,
             titleTextStyle: {
                 color: 'white'
             },
