@@ -112,7 +112,6 @@ class SHT21:
                 else:
                     crc = (crc << 1)
         return True if (crc == data[length]) else False
-
 # Threads
 
 # --------Read/Show Temperature and Humidity
