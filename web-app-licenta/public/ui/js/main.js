@@ -1,4 +1,3 @@
-import {getConnectionIp} from "../../config/config";
 const cameraModule = {
     init: function () {
         cameraModule.config = {
@@ -24,7 +23,7 @@ const cameraModule = {
             $streamSource: $("#stream-src"),
 
             isConnectionActive: false,
-            connection: io(getConnectionIp()),
+            connection: io('192.168.0.113:9000'),
         }
         cameraModule.emitLeftEvent();
         cameraModule.emitRightEvent();
@@ -163,7 +162,7 @@ const co2Module={
             $dangerous_gray: '#8c8c8c',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 
@@ -237,7 +236,7 @@ const humidityModule = {
             $poor_humidity_color: '#f54454',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 
@@ -397,7 +396,7 @@ const motionDetectionModule={
             $deactivated: 'green',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 
@@ -455,7 +454,7 @@ const smokeAlarmModule={
             $deactivated: 'green',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 
@@ -519,7 +518,7 @@ const smokeModule={
             $dangerous_gray: '#8c8c8c',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 
@@ -606,7 +605,7 @@ const temperatureModule={
             $hot_gray: '#666666',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 

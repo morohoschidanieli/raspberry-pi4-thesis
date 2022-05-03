@@ -11,7 +11,7 @@ const humidityModule = {
             $poor_humidity_color: '#f54454',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 

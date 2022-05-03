@@ -19,7 +19,7 @@ const smokeModule={
             $dangerous_gray: '#8c8c8c',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 

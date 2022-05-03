@@ -112,7 +112,7 @@ class SHT21:
                 else:
                     crc = (crc << 1)
         return True if (crc == data[length]) else False
-
+cd git
 # Threads
 
 # --------Read/Show Temperature and Humidity
@@ -188,7 +188,7 @@ def changeRGBColor():
     getData = ""
     while True:
         rgbData = db.child('sensors/rgb-data').get()
-        redValue = int(float(rgbData.val()['red']) * 0.39215686
+        redValue = int(float(rgbData.val()['red'])) * 0.39215686
         greenValue = int(float(rgbData.val()['green'])) * 0.39215686
         blueValue = int(float(rgbData.val()['blue'])) * 0.39215686
         changeColor(redValue, blueValue, greenValue)

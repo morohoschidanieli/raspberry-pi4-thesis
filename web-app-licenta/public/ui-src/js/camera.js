@@ -1,4 +1,3 @@
-import {getConnectionIp} from "../../config/config";
 const cameraModule = {
     init: function () {
         cameraModule.config = {
@@ -24,7 +23,7 @@ const cameraModule = {
             $streamSource: $("#stream-src"),
 
             isConnectionActive: false,
-            connection: io(getConnectionIp()),
+            connection: io('192.168.0.113:9000'),
         }
         cameraModule.emitLeftEvent();
         cameraModule.emitRightEvent();

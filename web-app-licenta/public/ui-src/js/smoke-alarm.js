@@ -10,7 +10,7 @@ const smokeAlarmModule={
             $deactivated: 'green',
 
             isConnectionActive: false,
-            connection: io('192.168.0.116:9000'),
+            connection: io('192.168.0.113:9000'),
         }
     },
 
